@@ -1,0 +1,242 @@
+
+.frame{
+  position: absolute;
+  bottom: 0rpx;
+  border-radius: 70rpx 70rpx 0rpx 0rpx;
+  background: #FFFFFF;
+  width: 750rpx;
+  height: 1166rpx;
+  z-index: 1000;
+}
+.tag_title{
+  position: absolute;
+  left: 252rpx;
+  top: 62rpx;
+  color: #000000;
+  text-shadow: 0px 8rpx 8rpx rgba(0, 0, 0, 0.25);
+  font-family: ZCOOL QingKe HuangYou;
+  font-weight: regular;
+  font-size: 40rpx;
+  line-height: normal;
+  letter-spacing: 0rpx;
+  text-align: left;
+}
+.tag_content{
+    color: #8C8C8C;
+    text-shadow: 0rpx 8rpx 8rpx 0rpx #000000;
+    font-family: ZCOOL QingKe HuangYou;
+    font-weight: regular;
+    font-size: 26rpx;
+    line-height: normal;
+    letter-spacing: 0rpx;
+    text-align: left;
+    position: absolute;
+    left: 282rpx;
+    top: 122rpx;
+}
+.tag_icon{
+    position: absolute;
+    width: 142rpx;
+    height: 142rpx;
+    right: 518rpx;
+    top: 38rpx;
+}
+.tag_icon2{
+    position: absolute;
+    top: 24rpx;
+    left:664rpx;
+
+    width: 54rpx;
+    height: 52rpx;
+}
+.divider{
+    border-radius: 18rpx;
+border: 2rpx solid #DFE4EA;
+box-shadow: 0rpx 3rpx 8rpx 0rpx #000000;
+    position: absolute;
+    width: 634rpx;
+    height: 0rpx;
+    left: 52rpx;
+    top: 188rpx;
+    margin-bottom: 40rpx;
+}
+.noOpen_image{
+    position: absolute;   
+    bottom:280rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 54rpx;
+}
+.noOpen{
+    width: 640rpx;
+    height: 520rpx;
+}
+.noOpen_text{
+    top: 50rpx;
+}
+.noOpen_text_style{
+    font-size: 38rpx;
+    font-family: STSongti-SC-Black;
+    background:linear-gradient(131deg,rgb(129, 129, 129) 50%,rgb(58, 58, 58) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow:0px 2px 2px 0px rgba(69,69,69,1);
+}
+.frame_img{
+position: absolute;
+width: 620rpx;
+height: 720rpx;
+left: 80rpx;
+top: 230rpx;
+}
+.item_title{
+
+    height: 40rpx;
+    position: absolute;
+    top: 220rpx;
+    left: 520rpx;
+
+    color: #000000;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.item_content1{
+  left: 120rpx;
+  top: 330rpx;
+  width: 480rpx;
+  height: 40rpx;
+  position: absolute;
+
+  color: #000000;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.item_content2{
+  left: 100rpx;
+  top: 410rpx;
+
+  height: 40rpx;
+  position: absolute;
+
+  color: #000000;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.item_content3{
+  left: 120rpx;
+  top: 490rpx;
+
+  height: 40rpx;
+  position: absolute;
+
+  color: #000000;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.item_content4{
+  left: 115rpx;
+  top: 570rpx;
+
+  height: 40rpx;
+  position: absolute;
+
+  color: #000000;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.item_num{
+  position: absolute;
+  left: 190rpx;
+  top: 650rpx;
+  color: #FFFFFF;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.item_price{
+  position: absolute;
+  left: 340rpx;
+  top: 710rpx;
+  color: #FFFFFF;
+font-family: ZCOOL KuaiLe;
+font-weight: regular;
+font-size: 40rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.large_buy{
+  position: absolute;
+  bottom: 14rpx;
+  left: 8rpx;
+  background: linear-gradient(137.91deg, #B71C1C 23.73%, rgba(33, 243, 243, 0.15) 191.98%);
+width: 124rpx;
+height: 124rpx;
+border-radius: 180rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.buy_text{
+  color: #000000;
+  font-family: ZCOOL KuaiLe;
+  font-weight: regular;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+  letter-spacing: 0rpx;
+  text-align: center;
+  width: 74rpx;
+  height: 80rpx;
+}
+.open{
+position: absolute;
+bottom: 5rpx;
+left: 400rpx;  
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.open_text{
+color: #000000;
+font-family: Ink Free;
+font-weight: regular;
+font-size: 60rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+position: absolute;
+padding-bottom:20rpx;
+}
+.open_tap{
+  width: 226rpx;
+  height: 96rpx;
+}
+
