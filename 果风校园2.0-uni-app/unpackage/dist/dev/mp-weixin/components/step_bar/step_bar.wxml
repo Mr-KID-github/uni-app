@@ -1,1 +1,1 @@
-<view><view class="background"><view class="content"><text class="text">Step 1.选择你的商品</text><image class="arrow" src="/static/img/arrow.svg"></image></view></view></view>
+<view><view class="background"><block wx:if="{{step==1}}"><view class="content"><text class="text">Step 1.选择您的商品</text><image class="arrow" src="/static/img/arrow.svg"></image></view></block><block wx:if="{{step==2}}"><view class="content"><text class="text">Step 2.确认您的订单</text><image class="arrow" style="transform:rotate(90deg);" src="/static/img/arrow.svg"></image></view></block></view></view>

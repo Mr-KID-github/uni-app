@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/order_confirm/order_confirm",
     "pages/goods/goods",
     "pages/index/index"
   ],
@@ -10,6 +11,5 @@
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

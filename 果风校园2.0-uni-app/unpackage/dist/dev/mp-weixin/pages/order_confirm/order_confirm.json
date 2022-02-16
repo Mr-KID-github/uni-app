@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "果风校园-订单确认",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "step_bar": "/components/step_bar/step_bar",
+    "position": "/components/position/position"
+  }
+}

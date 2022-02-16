@@ -6,10 +6,12 @@
 	line-height: 19px;
 	letter-spacing: 0.196737px;
 	color: #3C3C3C;
+	margin-left: 30rpx;
 }
 .arrow{
 	width: 45rpx;
 	height: 45rpx;
+	margin-right: 30rpx;
 }
 .background{
 	padding-top: 20rpx;

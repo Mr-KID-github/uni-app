@@ -1,6 +1,14 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/order_confirm/order_confirm",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "果风校园-订单确认",
+		        "enablePullDownRefresh": false
+		    }
+		},
+		{
 		    "path" : "pages/goods/goods",
 		    "style" :                                                                                    
 		    {
@@ -12,7 +20,7 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
-		}
+		}   
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -1,9 +1,14 @@
 <template>
 	<view>
 		<view class="background">
-			<view class="content">
-				<text class="text">Step 1.选择你的商品</text>
+			<view class="content" v-if="step==1">
+				<text class="text">Step 1.选择您的商品</text>
 				<image src="/static/img/arrow.svg" class="arrow"></image>
+			</view>
+			
+			<view class="content" v-if="step==2">
+				<text class="text">Step 2.确认您的订单</text>
+				<image src="/static/img/arrow.svg" class="arrow" style="transform:rotate(90deg);"></image>
 			</view>
 		</view>
 	</view>
@@ -16,6 +21,14 @@
 			return {
 				
 			};
+		},
+		props:['step'],	//接受父组件传递过来的步骤信息
+		created() {
+
+		},
+		methods:{
+			
+
 		}
 	}
 </script>
@@ -28,10 +41,12 @@
 		line-height: 19px;
 		letter-spacing: 0.196737px;
 		color: #3C3C3C;
+		margin-left: 30rpx;
 	}
 	.arrow{
 		width: 45rpx;
 		height: 45rpx;
+		margin-right: 30rpx;
 	}
 	.background{
 		padding-top: 20rpx;
