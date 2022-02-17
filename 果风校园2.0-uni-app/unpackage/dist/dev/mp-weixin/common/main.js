@@ -100,7 +100,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   },
   globalData: {
     server: 'https://qiubao.ltd/果宝',
-    coupons: [] } };exports.default = _default;
+    cert: [], // 购物车
+    total_price: 0 //总价
+  } };exports.default = _default;
 
 /***/ }),
 /* 9 */

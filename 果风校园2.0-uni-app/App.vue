@@ -11,7 +11,8 @@
 		},
 		globalData: {
 			server:'https://qiubao.ltd/果宝',
-			coupons: []
+			cert: [],	// 购物车
+			total_price: 0 //总价
 		}
 	}
 </script>

@@ -6,7 +6,7 @@ page{
 	background-color: white;
 	width: 100%;
 	height: 150rpx;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -19,8 +19,9 @@ page{
 }
 .total_price{
 	display: flex;
-	position: absolute;
-	right: 10%;
+	position: relative;
+	left: 65%;
+	margin-bottom: 20rpx;
 	margin-top: 20rpx;
 }
 .total_price view{
@@ -71,7 +72,6 @@ page{
 }
 .content{
 	width: 680rpx;
-	height: 670rpx;
 	background-color: white;
 	margin-top: 40rpx;
 	border-radius: 25rpx;
@@ -100,8 +100,8 @@ page{
 .content_num{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 15px;
-	line-height: 20px;
+	font-size: 28rpx;
+	line-height: 40rpx;
 	/* identical to box height */
 	
 	letter-spacing: -0.3px;
@@ -110,7 +110,7 @@ page{
 }
 .content_price{
 	font-style: normal;
-	font-weight: bold;
+	font-weight: bold; 
 	font-size: 18px;
 	line-height: 23px;
 	/* identical to box height */

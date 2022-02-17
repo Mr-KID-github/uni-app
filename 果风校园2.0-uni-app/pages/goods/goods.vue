@@ -3,7 +3,7 @@
 		<!-- 商品选择栏 -->
 		<Goods_bar></Goods_bar>
 		<!-- 步骤栏 -->
-		<step_bar></step_bar>
+		<step_bar :step="step"></step_bar> 
 		<view style="display: flex; justify-content: center; margin-top: 36rpx;">
 			<view style="display: flex; justify-content: space-between; width: 680rpx;">
 				<text class="text_item">商品列表</text>
@@ -21,7 +21,8 @@
 	export default {
 		data() {
 			return {
-				goods:[]
+				goods:[],
+				step: 1
 			}
 		},
 		onLoad() {
@@ -45,10 +46,11 @@
 			})
 		},
 		methods: {
+			// 通过子组件传来的商品选购数量更新父组件中的商品选购数量
 			get_msg(num,index){
 				console.log("子给父传值")
 				this.goods[index].goods_cert = num
-			}
+			},
 		}
 	}
 </script>

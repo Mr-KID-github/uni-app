@@ -30,6 +30,7 @@
 	background-color: #FFFFFF;
 	margin: 5%;
 	width: 90%; height: 100rpx;
+	margin-bottom: 180rpx;
 	border-radius: 20rpx;
 	display: flex;
 	align-items: center;

@@ -7,10 +7,10 @@
 			<view class="content">
 				<view class="content_item"  v-for="item in cert">
 					<view class="good_content">
-						<text class="content_name">{{item.good_name}}</text>
-						<text class="content_num">{{item.good_num}} 份</text>
+						<text class="content_name">{{item.goods_name}}</text>
+						<text class="content_num">{{item.goods_price}} 元 × {{item.goods_num}} 份</text>
 					</view>
-					<text class="content_price">￥{{item.good_price}}</text>
+					<text class="content_price">￥{{item.goods_price * item.goods_num}}</text>
 				</view>
 				<view style="border: 2rpx solid #979797; width: 90%; margin-left: 5%; margin-right: 5%;"></view>
 				<view class="tip">
@@ -20,7 +20,7 @@
 				<view style="border: 2rpx solid #979797; width: 90%; margin-left: 5%; margin-right: 5%;"></view>
 				<view class="total_price">
 					<view>Total:</view>
-					<text>￥{{total}}</text>
+					<text>￥{{total_price + 5}}</text>
 				</view>
 			</view>
 		</view>
@@ -37,24 +37,14 @@
 			return {
 				step: 2,
 				cert: [
-					{
-						good_name: '炭烧水果捞',
-						good_num: 1,
-						good_price: 10	
-					},
-					{
-						good_name: '炭烧水果捞',
-						good_num: 1,
-						good_price: 10	
-					},
-					{
-						good_name: '炭烧水果捞',
-						good_num: 1,
-						good_price: 10	
-					},
-				],
-				total: 75
+					
+				],	// 购物车
+				total_price: 0
 			}
+		},
+		onLoad() {
+			this.cert = getApp().globalData.cert
+			this.total_price = getApp().globalData.total_price
 		},
 		methods: {
 			
@@ -70,7 +60,7 @@ page{
 	background-color: white;
 	width: 100%;
 	height: 150rpx;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -83,8 +73,9 @@ page{
 }
 .total_price{
 	display: flex;
-	position: absolute;
-	right: 10%;
+	position: relative;
+	left: 65%;
+	margin-bottom: 20rpx;
 	margin-top: 20rpx;
 }
 .total_price view{
@@ -135,7 +126,6 @@ page{
 }
 .content{
 	width: 680rpx;
-	height: 670rpx;
 	background-color: white;
 	margin-top: 40rpx;
 	border-radius: 25rpx;
@@ -166,8 +156,8 @@ page{
 .content_num{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 15px;
-	line-height: 20px;
+	font-size: 28rpx;
+	line-height: 40rpx;
 	/* identical to box height */
 	
 	letter-spacing: -0.3px;
@@ -177,7 +167,7 @@ page{
 
 .content_price{
 	font-style: normal;
-	font-weight: bold;
+	font-weight: bold; 
 	font-size: 18px;
 	line-height: 23px;
 	/* identical to box height */

@@ -9,8 +9,8 @@
 	display: flex;
 	height: 80rpx;
 	width: 155rpx; 
-	position: relative;
-	right: 25rpx;
+	position: absolute;
+	right: 50rpx;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -36,13 +36,12 @@
 	border-radius: 20rpx;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 }
 .good_add{
 	height: 80rpx;
 	width: 155rpx;
-	position: relative;
-	right: 25rpx;
+	position: absolute;
+	right: 50rpx;
 }
 .good_text{
 	display: flex;
@@ -50,6 +49,7 @@
 	justify-content: space-around;
 	position: relative;
 	right: 60rpx;
+	margin-left: 120rpx;
 	font-style: normal;
 	font-weight: 800;
 	font-size: 13.799px;

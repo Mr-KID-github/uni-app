@@ -42,16 +42,63 @@
 		},
 		props:['goods'],	//接受父组件传递过来的商品信息
 		methods: {
+			// 添加商品到购物车
+			to_cert(good,method){
+				console.log("调用购物车方法")
+				console.log(good)
+				var cert = getApp().globalData.cert
+				var cert_good = {
+					"goods_name":good.goods_name,
+					"goods_num":good.goods_cert, 
+					"goods_price":good.goods_price,
+				}
+				let length = cert.length
+				/*/
+					如果购物车中没有如何商品，则不会执行下面循环，直接执行if (cert.length == 0) cert.push(cert_good)
+					如果购物车中有商品，则执行循环
+				/*/
+				for (let i=0; i<length; i++){
+					var item = cert[i]
+					// console.log(item.goods_name)
+					/*/
+						如果购物车中存在这个商品，则更新它的数量
+					/*/
+					if(item.goods_name==cert_good.goods_name){
+					    console.log("购物车中存在这个商品,更新它的数量")
+						item.goods_num = cert_good.goods_num
+						/*/
+							如果购物车中这个商品的数量为0，则从购物车中移除
+						/*/
+						if(item.goods_num==0){
+							cert.splice(i,1);
+							console.log("移除之后的购物车：" + cert)
+						}
+						break
+					} 
+					/*/
+						如果购物车一直到购物车底都没有找到这个商品，则从购物车将其添加至购物车
+					/*/
+					if (i==cert.length-1){
+						console.log("购物车中没有这个商品,将其添加进购物车")
+						cert.push(cert_good)
+					}
+				}
+				if (cert.length == 0 && method=="add") cert.push(cert_good)
+				console.log("购物车内有：")
+				console.log(cert)
+			},
 			  // 添加商品数量，原理同减少商品数量方法一样
 			  add_num:function(e){
-			    console.log(e.target.id)
+			    // console.log(e.target.id)
 			    for (let index = 0; index < this.goods.length; index++) {
 			      const element = this.goods[index];
 			      if (element.goods_name == e.target.id) {
 			        //索引是动态的 则使用下方方式
 					this.goods[index].goods_cert = this.goods[index].goods_cert + 1
+					// 调用购物车接口，将商品选购信息添加到购物车中
+					this.to_cert(this.goods[index],"add")
 			        // this.get_tatol_price()
-					console.log(this.goods[index])
+					// console.log(this.goods[index])
 					// 子组件向父组件传值
 					this.$emit("send_msg",this.goods[index].goods_cert,index)
 			        break
@@ -92,6 +139,8 @@
 					// 	this.goods[index].goods_cert = real_num
 					// }
 					this.goods[index].goods_cert = real_num
+					// 调用购物车接口，将商品选购信息添加到购物车中
+					this.to_cert(this.goods[index],"del")
 					// 子组件向父组件传值
 					this.$emit("send_msg",this.goods[index].goods_cert,index)
 			        break
@@ -113,8 +162,8 @@
 	display: flex;
 	height: 80rpx;
 	width: 155rpx; 
-	position: relative;
-	right: 25rpx;
+	position: absolute;
+	right: 50rpx;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -140,13 +189,12 @@
 	border-radius: 20rpx;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 }
 .good_add{
 	height: 80rpx;
 	width: 155rpx;
-	position: relative;
-	right: 25rpx;
+	position: absolute;
+	right: 50rpx;
 }
 .good_text{
 	display: flex;
@@ -154,6 +202,7 @@
 	justify-content: space-around;
 	position: relative;
 	right: 60rpx;
+	margin-left: 120rpx;
 	font-style: normal;
 	font-weight: 800;
 	font-size: 13.799px;
