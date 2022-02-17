@@ -1,0 +1,2 @@
+# GitHub_to_Notion
+通过Zapier连通GitHub和Notion，当上传一个commit时，Notion中数据库自动添加相关提交信息。
