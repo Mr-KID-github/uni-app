@@ -146,7 +146,6 @@ page{
 	line-height: 23px;
 	/* identical to box height */
 	
-	text-align: center;
 	letter-spacing: -0.3px;
 	
 	color: #000000;

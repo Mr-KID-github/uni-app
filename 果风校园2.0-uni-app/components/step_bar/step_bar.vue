@@ -30,20 +30,28 @@
 		methods:{
 			// 跳转到order_confirm界面
 			to_order(){
-				console.log("跳转order_confirm")
-				uni.navigateTo({
-					url:"/pages/order_confirm/order_confirm",
-					// 成功跳转则计算购物车总价格并赋值给全局total_price
-					success() {
-						let appdata = getApp().globalData
-						appdata.total_price = 0
-						for (let i = 0; i < appdata.cert.length; i++){
-							var item = appdata.cert[i]
-							appdata.total_price = appdata.total_price + item.goods_num * item.goods_price
+				if (getApp().globalData.cert.length == 0){
+					uni.showModal({
+						showCancel: false,
+						content: "您还未选择商品",
+					})
+				}
+				if(getApp().globalData.cert.length != 0){
+					console.log("跳转order_confirm")
+					uni.navigateTo({
+						url:"/pages/order_confirm/order_confirm",
+						// 成功跳转则计算购物车总价格并赋值给全局total_price
+						success() { 
+							let appdata = getApp().globalData
+							appdata.total_price = 0
+							for (let i = 0; i < appdata.cert.length; i++){
+								var item = appdata.cert[i]
+								appdata.total_price = appdata.total_price + item.goods_num * item.goods_price
+							}
+							console.log("总价：" + appdata.total_price)
 						}
-						console.log("总价：" + appdata.total_price)
-					}
-				})
+					})
+				}
 			}
 
 		}

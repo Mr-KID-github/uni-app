@@ -1,0 +1,1 @@
+<view><view class="input_temp"><input id="{{item_id}}" type="{{type}}" data-event-opts="{{[['input',[['input',['$event']]]]]}}" value="{{value}}" bindinput="__e"/><view class="divider1"></view><view class="item"><view class="item_name"><text>{{item_name}}</text><view class="divider2"></view></view><image src="{{item_image}}"></image></view></view></view>

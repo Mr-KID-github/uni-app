@@ -87,10 +87,68 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
+    var that = this;
+    // 获取用户唯一标识 openID
+    uni.login({
+      provider: 'weixin',
+      success: function success(loginRes) {
+        // console.log(loginRes.code);
+        uni.request({
+          url: getApp().globalData.server + '/index.php/Home/GuoFeng/getOpenid',
+          data: {
+            "code": loginRes.code },
+
+          method: "POST",
+          header: {
+            'content-type': "application/x-www-form-urlencoded" },
+
+          dataType: 'json',
+          success: function success(res) {
+            // 将其储存到全局中
+            console.log("登录成功");
+            that.globalData.openid = res.data.openid;
+            uni.request({
+              url: getApp().globalData.server + '/index.php/Home/GuoFeng/findAddress',
+              data: {
+                'user_id': res.data.openid },
+
+              method: "POST",
+              header: {
+                'content-type': "application/x-www-form-urlencoded" },
+
+              dataType: 'json',
+              success: function success(res) {
+                console.log(res);
+                if (res.data.error_code == 0) {
+                  console.log("成功获取用户地址");
+                  console.log(res.data.data);
+                  getApp().globalData.position['phone'] = res.data.data.phone;
+                  getApp().globalData.position['school'] = res.data.data.school;
+                  getApp().globalData.position['apartment'] = res.data.data.apartment;
+                  getApp().globalData.position['dormitory'] = res.data.data.dormitory;
+                }
+              },
+              fail: function fail(res) {
+                console.log(res);
+              } });
+
+
+          },
+          fail: function fail(res) {
+            var there = that;
+            console.log("登录失败,请重新进入尝试...");
+            uni.showModal({
+              showCancel: false,
+              content: "登录失败,请重新进入尝试..." });
+
+          } });
+
+      } });
+
   },
   onShow: function onShow() {
     console.log('App Show');
@@ -99,10 +157,17 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     console.log('App Hide');
   },
   globalData: {
+    openid: "",
     server: 'https://qiubao.ltd/果宝',
     cert: [], // 购物车
-    total_price: 0 //总价
-  } };exports.default = _default;
+    total_price: 0, //总价
+    position: {
+      "phone": "", //手机号（在页面初始化时从数据中提取）
+      "school": "", //学校（在页面初始化时从数据中提取）
+      "apartment": "", //公寓号（在页面初始化时从数据中提取）
+      "dormitory": "" //寝室号（在页面初始化时从数据中提取）
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 9 */

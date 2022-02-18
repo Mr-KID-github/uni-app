@@ -14,28 +14,19 @@
 	position: absolute;
 	left: 8%;
 }
-.position_user{
-	display: flex;
-}
 .position_user text{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 12px;
-	line-height: 15px;
-	text-align: center;
-	letter-spacing: -0.3px;
-	margin-right: 10rpx;
+	font-size: 24rpx;
+	line-height: 30rpx;
 	color: #979797;
 }
 .position_text{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 14px;
-	line-height: 18px;
+	font-size: 28rpx;
+	line-height: 36rpx;
 	/* identical to box height */
-	
-	text-align: center;
-	letter-spacing: -0.3px;
 	position: absolute;
 	left: 18%;
 	color: #000000;

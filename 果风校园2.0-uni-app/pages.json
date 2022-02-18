@@ -8,6 +8,16 @@
 		    }
 		},
 		{
+		    "path" : "pages/address/address",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "果风校园-地址信息",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+
+		{
 		    "path" : "pages/order_confirm/order_confirm",
 		    "style" :                                                                                    
 		    {

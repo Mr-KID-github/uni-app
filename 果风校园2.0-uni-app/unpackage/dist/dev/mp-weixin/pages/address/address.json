@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "果风校园-地址信息",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "new_input": "/components/new_input/new_input"
+  }
+}

@@ -104,13 +104,13 @@ var components
 try {
   components = {
     Goods_bar: function() {
-      return __webpack_require__.e(/*! import() | components/Goods_bar/Goods_bar */ "components/Goods_bar/Goods_bar").then(__webpack_require__.bind(null, /*! @/components/Goods_bar/Goods_bar.vue */ 36))
+      return __webpack_require__.e(/*! import() | components/Goods_bar/Goods_bar */ "components/Goods_bar/Goods_bar").then(__webpack_require__.bind(null, /*! @/components/Goods_bar/Goods_bar.vue */ 44))
     },
     step_bar: function() {
-      return __webpack_require__.e(/*! import() | components/step_bar/step_bar */ "components/step_bar/step_bar").then(__webpack_require__.bind(null, /*! @/components/step_bar/step_bar.vue */ 43))
+      return __webpack_require__.e(/*! import() | components/step_bar/step_bar */ "components/step_bar/step_bar").then(__webpack_require__.bind(null, /*! @/components/step_bar/step_bar.vue */ 51))
     },
     goods_item: function() {
-      return __webpack_require__.e(/*! import() | components/goods_item/goods_item */ "components/goods_item/goods_item").then(__webpack_require__.bind(null, /*! @/components/goods_item/goods_item.vue */ 50))
+      return __webpack_require__.e(/*! import() | components/goods_item/goods_item */ "components/goods_item/goods_item").then(__webpack_require__.bind(null, /*! @/components/goods_item/goods_item.vue */ 58))
     }
   }
 } catch (e) {
@@ -196,7 +196,7 @@ var _default =
     var that = this;
     console.log("商品界面onLoad中......");
     uni.request({
-      url: getApp().globalData.server + '/index.php/Home/GuoBao/goods',
+      url: getApp().globalData.server + '/index.php/Home/GuoFeng/Find_goods',
       data: {},
 
 

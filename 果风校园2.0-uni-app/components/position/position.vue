@@ -1,12 +1,11 @@
 <template>
 	<view>
-		<view class="background">
+		<view class="background" @click="modify_position">
 			<image src="/static/img/position_logo.svg" class="position_img"></image>
 			<view class="position_text">
-				<text>麻省理工学院湖西校区六公寓207</text>
+				<text>{{school + apartment + dormitory}}</text>
 				<view class="position_user">
-					<text>白浪</text>
-					<text>19898743829</text>
+					<text>{{phone}}</text>
 				</view>
 			</view>
 			<image src="/static/img/arrow3.svg" class="arrow3"></image>
@@ -19,8 +18,18 @@
 		name:"position",
 		data() {
 			return {
-				
+				school: getApp().globalData.position['school'],
+				apartment: getApp().globalData.position['apartment'],
+				dormitory: getApp().globalData.position['dormitory'],
+				phone: getApp().globalData.position['phone'],
 			};
+		},
+		methods: {
+			modify_position(){
+				uni.navigateTo({
+					url:"/pages/address/address"
+				})
+			}
 		}
 	}
 </script>
@@ -41,28 +50,20 @@
 	position: absolute;
 	left: 8%;
 }
-.position_user{
-	display: flex;
-}
+
 .position_user text{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 12px;
-	line-height: 15px;
-	text-align: center;
-	letter-spacing: -0.3px;
-	margin-right: 10rpx;
+	font-size: 24rpx;
+	line-height: 30rpx;
 	color: #979797;
 }
 .position_text{
 	font-style: normal;
 	font-weight: normal;
-	font-size: 14px;
-	line-height: 18px;
+	font-size: 28rpx;
+	line-height: 36rpx;
 	/* identical to box height */
-	
-	text-align: center;
-	letter-spacing: -0.3px;
 	position: absolute;
 	left: 18%;
 	color: #000000;

@@ -29,7 +29,7 @@
 			var that = this
 			console.log("商品界面onLoad中......")
 			uni.request({
-				url: getApp().globalData.server + '/index.php/Home/GuoBao/goods',
+				url: getApp().globalData.server + '/index.php/Home/GuoFeng/Find_goods',
 				data:{
 					
 				},
