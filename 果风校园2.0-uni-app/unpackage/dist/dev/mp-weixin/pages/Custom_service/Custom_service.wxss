@@ -1,0 +1,132 @@
+
+page{
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.plan_goods{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #F1F4F7;
+	width: 670rpx;
+	height: 500rpx;
+	border-radius: 20rpx;
+	margin-top: 20rpx;
+}
+.plan_goods_title{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36rpx;
+	line-height: 46rpx;
+	position: relative;
+	right: 210rpx;
+	color: #000000;
+}
+.plan_time{
+	width: 670rpx;
+}
+.plan_title{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30rpx;
+	line-height: 76rpx;
+	
+	color: #0A0909;
+}
+.time_content{
+	display: flex;
+	justify-content: space-between;
+}
+.time_item{
+	width: 320rpx;
+	height: 95rpx;
+	background-color: #f8f8f6;
+	border-radius: 20rpx;
+	display: flex;
+	align-items: center;
+}
+.time_item image{
+	width: 42rpx;
+	height: 42rpx;
+	margin-left: 30rpx;
+	margin-right: 30rpx;
+}
+.time_item text{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30rpx;
+	line-height: 75rpx;
+	margin-right: 42rpx;
+	
+	color: #0A0909;
+}
+.Notification_item{
+	width: 350rpx;
+	height: 85rpx;
+	background-color: #f8f8f6;
+	border-radius: 20rpx;
+	display: flex;
+	align-items: center;
+}
+.Notification_item image{
+	width: 40rpx;
+	height: 40rpx;
+	margin-left: 30rpx;
+}
+.Notification_item text{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 34rpx;
+	line-height: 75rpx;
+	margin-left: 30rpx;
+	color: #0A0909;
+}
+.Notification_img{
+	width: 96rpx;
+	height: 96rpx;
+}
+.Notification_Check_text{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36rpx;
+	line-height: 46rpx;
+	margin-left: 30rpx;
+	margin-right: 22rpx;
+	color: #000000;
+}
+.Total_price{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 50rpx;
+	line-height: 60rpx;
+	
+	color: #000000;
+}
+.Total{
+	margin-top: 40rpx;
+	display: flex;
+	flex-direction: column;
+}
+.Total_extend{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28rpx;
+	line-height: 36rpx;
+	color: #000000;
+}
+.button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40rpx;
+	margin-bottom: 50rpx;
+}
+.button image{
+	width: 330rpx;
+	height: 100rpx;
+	margin-right: 10rpx;
+}
+

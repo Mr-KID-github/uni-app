@@ -1,0 +1,1 @@
+<view><view class="good_item"><view class="img_bcg"><image class="good_img" src="{{img_url}}"></image></view><view class="good_content"><text class="item_name">{{good_name}}</text><text class="item_introduct">{{plan_introduct}}</text></view><view class="show_price">{{'￥'+price+''}}</view></view></view>

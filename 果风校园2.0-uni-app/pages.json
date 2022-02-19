@@ -1,6 +1,14 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/Custom_service/Custom_service",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "果风校园-定制服务",
+		        "enablePullDownRefresh": false
+		    }
+		},
+		{
 		    "path" : "pages/goods/goods",
 		    "style" :                                                                                    
 		    {
@@ -32,6 +40,7 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}   
+
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
