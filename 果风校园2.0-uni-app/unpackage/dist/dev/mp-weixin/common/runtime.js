@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/plan_good/plan_good":1,"components/plan_select/plan_select":1,"components/Goods_bar/Goods_bar":1,"components/goods_item/goods_item":1,"components/step_bar/step_bar":1,"components/new_input/new_input":1,"components/position/position":1};
+/******/ 		var cssChunks = {"components/plan_good/plan_good":1,"components/plan_select/plan_select":1,"components/Goods_bar/Goods_bar":1,"components/custom_bar/custom_bar":1,"components/goods_item/goods_item":1,"components/step_bar/step_bar":1,"components/new_input/new_input":1,"components/position/position":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/plan_good/plan_good":"components/plan_good/plan_good","components/plan_select/plan_select":"components/plan_select/plan_select","components/Goods_bar/Goods_bar":"components/Goods_bar/Goods_bar","components/goods_item/goods_item":"components/goods_item/goods_item","components/step_bar/step_bar":"components/step_bar/step_bar","components/new_input/new_input":"components/new_input/new_input","components/position/position":"components/position/position"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/plan_good/plan_good":"components/plan_good/plan_good","components/plan_select/plan_select":"components/plan_select/plan_select","components/Goods_bar/Goods_bar":"components/Goods_bar/Goods_bar","components/custom_bar/custom_bar":"components/custom_bar/custom_bar","components/goods_item/goods_item":"components/goods_item/goods_item","components/step_bar/step_bar":"components/step_bar/step_bar","components/new_input/new_input":"components/new_input/new_input","components/position/position":"components/position/position"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

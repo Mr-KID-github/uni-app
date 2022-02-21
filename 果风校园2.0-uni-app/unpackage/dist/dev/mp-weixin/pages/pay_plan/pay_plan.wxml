@@ -1,0 +1,1 @@
+<view><view style="height:110rpx;"></view><custom_bar vue-id="0e830f40-1" customstep="/static/img/customstep3.svg" bind:__l="__l"></custom_bar></view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选择方案商品",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "goods_bar": "/components/Goods_bar/Goods_bar",
+    "goods_item": "/components/goods_item/goods_item",
+    "custom_bar": "/components/custom_bar/custom_bar"
+  }
+}

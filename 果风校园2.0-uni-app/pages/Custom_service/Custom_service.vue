@@ -1,25 +1,40 @@
 <template>
 	<view>
 		<!-- 导入方案选择组件 -->
-		<plan_select></plan_select>
-		<view class="plan_goods">
+		<plan_select @send_plan="get_plan"></plan_select>
+		<view class="plan_goods" v-if="plan_name!='自定义'">
 			<text class="plan_goods_title">科学-搭配</text>
 			<!-- 导入计划商品组件 -->
-			<plan_good price="10" plan_introduct="每次配送一到两种水果" good_name="苹果&香蕉&西瓜各种水果" img_url="/static/img/fruit1.jpg"></plan_good>
-			<plan_good price="10" plan_introduct="配送一次原味水果捞" good_name="原味水果捞" img_url="/static/img/fish0.png"></plan_good>
-			<plan_good price="0" plan_introduct="果茶" good_name="免费赠送一次果茶" img_url="/static/img/tea1.jpg"></plan_good>
+			<view v-for="item in plan_item">
+				<plan_good v-if="item.plan_name==plan_name" :important='item.plan_important' :price="item.plan_price" :plan_introduct="item.plan_introduct" :good_name="item.plan_good" :img_url="item.plan_img"></plan_good>
+			</view>
+		</view>
+		<view class="plan_goods" v-if="plan_name=='自定义'">
+			<text class="plan_goods_title">自选-搭配</text>
+			<!-- 导入计划商品组件 -->
+			<view @click="to_shop" id="fruit">
+				<plan_good price="0" img_url="/static/img/fruit1.jpg" plan_introduct="选择您想要配送的水果" good_name="自选水果通道" arrow=true></plan_good>
+			</view>
+			<view @click="to_shop" id="fishing">
+				<plan_good price="0" img_url="/static/img/fishing2.jpg" plan_introduct="选择您想要配送的果捞" good_name="自选果捞通道" arrow=true></plan_good>
+			</view>
+			<view @click="to_shop" id="tea">
+				<plan_good price="0" img_url="/static/img/tea5.jpg" plan_introduct="选择您想要配送的果茶" good_name="自选果茶通道" arrow=true></plan_good>
+			</view>
 		</view>
 		<view class="plan_time">
 			<text class="plan_title">配送次数 & 配送周期</text>
 			<view class="time_content">
 				<view class="time_item">
 					<image src="/static/img/times.svg"></image>
-					<text>5</text>
+					<text v-if="plan_name!='自定义'">{{plan_name=='方案一'?plan1_settings.settings_times:(plan_name=='方案二'?plan2_settings.settings_times:custom_settings.settings_times)}}</text>
+					<input v-if="plan_name=='自定义'" id="times_input" style="width: 20rpx;"/>
 					<text>times</text>
 				</view>
 				<view class="time_item">
 					<image src="/static/img/days.svg"></image>
-					<text>7</text>
+					<text v-if="plan_name!='自定义'">{{plan_name=='方案一'?plan1_settings.settings_days:(plan_name=='方案二'?plan2_settings.settings_days:custom_settings.settings_days)}}</text>
+					<input v-if="plan_name=='自定义'" id="days_input" style="width: 40rpx;"/>
 					<text>days</text>
 				</view>
 			</view>
@@ -31,7 +46,8 @@
 			<view style="display: flex; align-items: center;">
 				<view class="Notification_item">
 					<image src="/static/img/Notification.svg"></image>
-					<text>10:00 AM</text>
+					<text v-if="plan_name!='自定义'">{{plan_name=='方案一'?plan1_settings.setting_clock_time:(plan_name=='方案二'?plan2_settings.setting_clock_time:custom_settings.setting_clock_time)}}</text>
+					<input v-if="plan_name=='自定义'" id="Notification_input"/>
 				</view>
 				<text class="Notification_Check_text">是否-提醒</text>
 				<image src="/static/img/Notification_Check.svg" class="Notification_img"  v-if="Notification_Check" @click="change_Check"></image>
@@ -39,12 +55,13 @@
 			</view>
 		</view>
 		<view class="Total">
-			<text class="Total_price">Total:￥{{20}}</text>
+			<text class="Total_price">Total:￥{{plan_name=='方案一'?plan1_price:(plan_name=='方案二'?plan2_price:custom_price)}}</text>
 			<text class="Total_extend">选择定制配送套餐，每周赠送一杯果茶</text>
 		</view>
+	
 		<view class="button">
 			<image src="/static/img/REVIEW_MENU.svg"></image>
-			<image src="/static/img/CHECK_OUT.svg"></image>
+			<image src="/static/img/CHECK_OUT.svg" @click="check_out"></image>
 		</view>
 	</view>
 </template>
@@ -53,13 +70,74 @@
 	export default {
 		data() {
 			return {
-				Notification_Check: true
+				Notification_Check: true,
+				plan_name: '方案一',
+				plan_item: [],
+				plan1_settings: {},
+				plan2_settings: {},
+				custom_settings:{},
+				plan1_price: 0,
+				plan2_price:0,
+				custom_price:0,
 			}
 		},
+		onLoad() {
+			// 获取方案数据
+			var that = this
+			uni.request({
+				url: getApp().globalData.server + '/index.php/Home/GuoFeng/findplan',
+				data:{
+					
+				},
+				method:"POST",
+				header: {
+					'content-type': "application/x-www-form-urlencoded"
+				},
+				dataType: 'json',
+				success:function(res){
+					console.log("成功获取到方案信息") 
+					// console.log(res.data.data)
+					// console.log(res.data.setting)
+					that.plan_item = res.data.data
+					for (let i = 0 ; i<res.data.setting.length; i++ ){
+						var item = res.data.setting[i]
+						if (item.settings_by == "方案一") {
+							that.plan1_settings = item
+						} else if (item.settings_by == "方案二") {
+							that.plan2_settings = item
+						} else if (item.settings_by == getApp().globalData.openid) {
+							that.custom_settings = item
+						}
+					}
+					for (let i = 0 ; i<res.data.data.length; i++ ){
+						var item = res.data.data[i]
+						if (item.plan_name == "方案一") {
+							that.plan1_price = parseInt(item.plan_price) + that.plan1_price
+						} else if (item.plan_name == "方案二") {
+							that.plan2_price = parseInt(item.plan_price) + that.plan2_price
+						} else if (item.plan_name == getApp().globalData.openid) {
+							that.custom_price = parseInt(item.plan_price) + that.custom_price
+						}
+					}
+					console.log(that.plan2_price)
+				}
+			})
+		},
 		methods: {
+			check_out(){
+				console.log("确认" + this.plan_name)
+				uni.navigateTo({
+					url: '/pages/Custom_goods/Custom_goods?plan=' + this.plan_name
+				})
+			},
 			change_Check(){
 				this.Notification_Check = !this.Notification_Check
-			}
+			},
+			// 接受从子组件方案选择器里传入的方案
+			get_plan(plan_name){
+				// console.log(plan_name)
+				this.plan_name = plan_name
+			},
 		}
 	}
 </script>
@@ -71,7 +149,17 @@ page{
 	flex-direction: column;
 	align-items: center;
 }
-
+.custom_text{
+	width: 510rpx;
+	height: 92rpx;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36rpx;
+	line-height: 46rpx;
+	text-align: center;
+	
+	color: #000000;
+}
 .plan_goods{
 	display: flex;
 	flex-direction: column;
@@ -135,6 +223,15 @@ page{
 	
 	color: #0A0909;
 }
+input{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30rpx;
+	line-height: 75rpx;
+	margin-right: 42rpx;
+	
+	color: #0A0909;
+}
 .Notification_item{
 	width: 350rpx;
 	height: 85rpx;
@@ -155,7 +252,15 @@ page{
 	line-height: 75rpx;
 	margin-left: 30rpx;
 	color: #0A0909;
-
+}
+.Notification_item input{
+	width: 160rpx;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 34rpx;
+	line-height: 75rpx;
+	margin-left: 30rpx;
+	color: #0A0909;
 }
 .Notification_img{
 	width: 96rpx;
@@ -205,4 +310,6 @@ page{
 	height: 100rpx;
 	margin-right: 10rpx;
 }
+
+
 </style>

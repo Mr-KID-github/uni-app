@@ -1,0 +1,19 @@
+
+page{
+	background-color: #f6f9fc;
+}
+.arrow2{
+	width: 30rpx;
+	height: 30rpx;
+	-webkit-transform:rotate(90deg);
+	        transform:rotate(90deg);
+	margin-left: 10rpx;
+}
+.text_item{
+	font-style: normal;
+	font-weight: 800;
+	font-size: 11.8277px;
+	line-height: 16px;
+}
+
+

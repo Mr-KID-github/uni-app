@@ -4,19 +4,19 @@
 			<text class="plan_text">选择您要配送的果茶&果捞&水果方案</text>
 			<view class="plan">
 				<view class="item">
-					<view class="item_name">
+					<view :class="(plan_name=='方案一')?'item_name':'item_name2'" @click="select_plan" id="方案一">
 						方案一
 					</view>
 					<text class="item_price">￥20.00</text>
 				</view>
 				<view class="item">
-					<view class="item_name2">
+					<view :class="(plan_name=='方案二')?'item_name':'item_name2'" @click="select_plan" id="方案二">
 						方案二
 					</view>
 					<text class="item_price">￥20.00</text>
 				</view>
 				<view class="item">
-					<view class="item_name2">
+					<view :class="(plan_name=='自定义')?'item_name':'item_name2'" @click="select_plan" id="自定义">
 						自定义
 					</view>
 					<text class="item_price">￥20.00</text>
@@ -30,11 +30,16 @@
 	export default {
 		data() {
 			return {
-				
+				plan_name: '方案一'
 			}
 		},
 		methods: {
-			
+			select_plan(e){
+				// console.log(e.currentTarget.id)
+				this.plan_name = e.currentTarget.id
+				// 发送选择的方案给父组件
+				this.$emit('send_plan',this.plan_name)
+			}
 		}
 	}
 </script>

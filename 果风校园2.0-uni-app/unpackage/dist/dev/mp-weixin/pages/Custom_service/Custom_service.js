@@ -104,10 +104,10 @@ var components
 try {
   components = {
     plan_select: function() {
-      return __webpack_require__.e(/*! import() | components/plan_select/plan_select */ "components/plan_select/plan_select").then(__webpack_require__.bind(null, /*! @/components/plan_select/plan_select.vue */ 52))
+      return __webpack_require__.e(/*! import() | components/plan_select/plan_select */ "components/plan_select/plan_select").then(__webpack_require__.bind(null, /*! @/components/plan_select/plan_select.vue */ 66))
     },
     plan_good: function() {
-      return __webpack_require__.e(/*! import() | components/plan_good/plan_good */ "components/plan_good/plan_good").then(__webpack_require__.bind(null, /*! @/components/plan_good/plan_good.vue */ 59))
+      return __webpack_require__.e(/*! import() | components/plan_good/plan_good */ "components/plan_good/plan_good").then(__webpack_require__.bind(null, /*! @/components/plan_good/plan_good.vue */ 73))
     }
   }
 } catch (e) {
@@ -162,7 +162,24 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -217,13 +234,75 @@ var _default =
 {
   data: function data() {
     return {
-      Notification_Check: true };
+      Notification_Check: true,
+      plan_name: '方案一',
+      plan_item: [],
+      plan1_settings: {},
+      plan2_settings: {},
+      custom_settings: {},
+      plan1_price: 0,
+      plan2_price: 0,
+      custom_price: 0 };
+
+  },
+  onLoad: function onLoad() {
+    // 获取方案数据
+    var that = this;
+    uni.request({
+      url: getApp().globalData.server + '/index.php/Home/GuoFeng/findplan',
+      data: {},
+
+
+      method: "POST",
+      header: {
+        'content-type': "application/x-www-form-urlencoded" },
+
+      dataType: 'json',
+      success: function success(res) {
+        console.log("成功获取到方案信息");
+        // console.log(res.data.data)
+        // console.log(res.data.setting)
+        that.plan_item = res.data.data;
+        for (var i = 0; i < res.data.setting.length; i++) {
+          var item = res.data.setting[i];
+          if (item.settings_by == "方案一") {
+            that.plan1_settings = item;
+          } else if (item.settings_by == "方案二") {
+            that.plan2_settings = item;
+          } else if (item.settings_by == getApp().globalData.openid) {
+            that.custom_settings = item;
+          }
+        }
+        for (var _i = 0; _i < res.data.data.length; _i++) {
+          var item = res.data.data[_i];
+          if (item.plan_name == "方案一") {
+            that.plan1_price = parseInt(item.plan_price) + that.plan1_price;
+          } else if (item.plan_name == "方案二") {
+            that.plan2_price = parseInt(item.plan_price) + that.plan2_price;
+          } else if (item.plan_name == getApp().globalData.openid) {
+            that.custom_price = parseInt(item.plan_price) + that.custom_price;
+          }
+        }
+        console.log(that.plan2_price);
+      } });
 
   },
   methods: {
+    check_out: function check_out() {
+      console.log("确认" + this.plan_name);
+      uni.navigateTo({
+        url: '/pages/Custom_goods/Custom_goods?plan=' + this.plan_name });
+
+    },
     change_Check: function change_Check() {
       this.Notification_Check = !this.Notification_Check;
+    },
+    // 接受从子组件方案选择器里传入的方案
+    get_plan: function get_plan(plan_name) {
+      // console.log(plan_name)
+      this.plan_name = plan_name;
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 18 */

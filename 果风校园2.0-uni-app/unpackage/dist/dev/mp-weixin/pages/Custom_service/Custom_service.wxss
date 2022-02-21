@@ -5,6 +5,17 @@ page{
 	flex-direction: column;
 	align-items: center;
 }
+.custom_text{
+	width: 510rpx;
+	height: 92rpx;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36rpx;
+	line-height: 46rpx;
+	text-align: center;
+	
+	color: #000000;
+}
 .plan_goods{
 	display: flex;
 	flex-direction: column;
@@ -63,6 +74,15 @@ page{
 	
 	color: #0A0909;
 }
+input{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30rpx;
+	line-height: 75rpx;
+	margin-right: 42rpx;
+	
+	color: #0A0909;
+}
 .Notification_item{
 	width: 350rpx;
 	height: 85rpx;
@@ -77,6 +97,15 @@ page{
 	margin-left: 30rpx;
 }
 .Notification_item text{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 34rpx;
+	line-height: 75rpx;
+	margin-left: 30rpx;
+	color: #0A0909;
+}
+.Notification_item input{
+	width: 160rpx;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 34rpx;
@@ -129,4 +158,6 @@ page{
 	height: 100rpx;
 	margin-right: 10rpx;
 }
+
+
 

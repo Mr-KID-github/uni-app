@@ -25,9 +25,10 @@
 				step: 1
 			}
 		},
-		onLoad() {
+		onLoad(custom_type) {
 			var that = this
 			console.log("商品界面onLoad中......")
+			// console.log(custom_type)
 			uni.request({
 				url: getApp().globalData.server + '/index.php/Home/GuoFeng/Find_goods',
 				data:{
@@ -44,6 +45,12 @@
 					that.goods = res.data
 				}
 			})
+			if (custom_type) {
+				// 发送信息的页面
+				// $emit(eventName, data)  
+				console.log("发送定制服务信息")
+				uni.$emit('send_type',custom_type.custom_type)
+			}
 		},
 		methods: {
 			// 通过子组件传来的商品选购数量更新父组件中的商品选购数量

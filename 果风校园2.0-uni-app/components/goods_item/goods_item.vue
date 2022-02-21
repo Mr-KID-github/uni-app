@@ -1,7 +1,8 @@
 <template>
 	<view>
 		<view class="background">
-			<view v-for="item in goods">
+			<!-- 普通调用 -->
+			<view v-for="item in goods" v-if="!custom">
 				<view class="good" v-if="item.goods_type==type">
 					<view class="img_bcg">
 						<image class="good_img" :src="item.goods_picture1"></image>
@@ -20,6 +21,22 @@
 					<image class="no_sides" src="/static/img/no_sides.svg" v-if="item.goods_number==0"></image>
 				</view>
 			</view>
+			<!-- 定制调用 -->
+			<view v-for="item in goods" v-if="custom">
+				<view class="good" v-if="item.goods_type==type">
+					<view class="img_bcg">
+						<image class="good_img" :src="item.goods_picture1"></image>
+					</view>
+					<view class="good_text">
+						<text class="good_name">{{item.goods_name}}</text>
+						<text class="good_price">¥{{item.goods_price}}</text>
+					</view> 
+					<image class="good_add" src="/static/img/Add.svg" v-if="item.goods_number!=0 && item.goods_cert==0" :id="item.goods_name" @click="add_num"></image>
+					<image class="good_add" src="/static/img/No.svg" v-if="item.goods_number==0"></image>
+					<image src="/static/img/added.svg" class="good_add" @click="del_num" :id="item.goods_name" v-if="item.goods_cert != 0"></image>
+					<image class="no_sides" src="/static/img/no_sides.svg" v-if="item.goods_number==0"></image>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -30,6 +47,7 @@
 		data() {
 			return {
 				type: 'tea', 	//展示的商品类型
+				custom_cert: []	//定制购物车
 			};
 		},
 		created() {
@@ -40,17 +58,31 @@
 				this.type = select
 			})
 		},
-		props:['goods'],	//接受父组件传递过来的商品信息
+		props:['goods','custom','plan'],	//接受父组件传递过来的商品信息
 		methods: {
 			// 添加商品到购物车
 			to_cert(good,method){
 				console.log("调用购物车方法")
-				console.log(good)
-				var cert = getApp().globalData.cert
-				var cert_good = {
-					"goods_name":good.goods_name,
-					"goods_num":good.goods_cert, 
-					"goods_price":good.goods_price,
+				// console.log(good)
+				
+				if (this.custom){
+					var cert = getApp().globalData.custom_cert
+					// 组件传值通过下列方式获得
+					// console.log(JSON.parse(JSON.stringify(this.plan)))
+					var cert_good = {
+						"plan_name":JSON.parse(JSON.stringify(this.plan))['plan'],
+						"goods_name":good.goods_name,
+						"goods_num":good.goods_cert, 
+						"goods_introduct": good.details,
+						"goods_img": good.goods_picture1
+					}
+				}else{
+					var cert = getApp().globalData.cert
+					var cert_good = {
+						"goods_name":good.goods_name,
+						"goods_num":good.goods_cert, 
+						"goods_price":good.goods_price,
+					}
 				}
 				let length = cert.length
 				/*/
@@ -69,11 +101,13 @@
 						/*/
 							如果购物车中这个商品的数量为0，则从购物车中移除
 						/*/
-						if(item.goods_num==0){
+						if(item.goods_num==0 && JSON.parse(JSON.stringify(this.plan))['plan']==item.plan_name){
 							cert.splice(i,1);
 							console.log("移除之后的购物车：" + cert)
 						}
-						break
+						if (!this.custom){
+							break
+						}
 					} 
 					/*/
 						如果购物车一直到购物车底都没有找到这个商品，则从购物车将其添加至购物车
@@ -83,7 +117,9 @@
 						cert.push(cert_good)
 					}
 				}
-				if (cert.length == 0 && method=="add") cert.push(cert_good)
+				if (cert.length == 0 && method=="add") {
+					cert.push(cert_good)
+				}
 				console.log("购物车内有：")
 				console.log(cert)
 			},
@@ -95,9 +131,10 @@
 			      if (element.goods_name == e.target.id) {
 			        //索引是动态的 则使用下方方式
 					this.goods[index].goods_cert = this.goods[index].goods_cert + 1
+					console.log(this.goods[index])
 					// 调用购物车接口，将商品选购信息添加到购物车中
 					this.to_cert(this.goods[index],"add")
-			        // this.get_tatol_price()
+					// this.get_tatol_price()
 					// console.log(this.goods[index])
 					// 子组件向父组件传值
 					this.$emit("send_msg",this.goods[index].goods_cert,index)

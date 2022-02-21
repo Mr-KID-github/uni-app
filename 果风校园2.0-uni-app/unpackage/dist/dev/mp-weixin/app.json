@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/Custom_service/Custom_service",
+    "pages/Custom_goods/Custom_goods",
     "pages/goods/goods",
     "pages/address/address",
     "pages/order_confirm/order_confirm",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/order_plan/order_plan",
+    "pages/pay_plan/pay_plan"
   ],
   "subPackages": [],
   "window": {
@@ -13,6 +16,5 @@
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

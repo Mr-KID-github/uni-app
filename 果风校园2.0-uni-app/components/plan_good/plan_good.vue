@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="good_item">
+		<view :class="(important==1)?'good_item2':'good_item' ">
 			<view class="img_bcg">
 				<image class="good_img" :src="img_url"></image>
 			</view>
@@ -8,8 +8,11 @@
 				<text class="item_name">{{good_name}}</text>
 				<text class="item_introduct">{{plan_introduct}}</text>
 			</view>
-			<view class="show_price">
+			<view class="show_price" v-if="!arrow">
 				￥{{price}}
+			</view>
+			<view style="position: absolute;right: 105rpx;" v-if="arrow">
+				<image src="/static/img/arrow.svg" class="arrow"></image>
 			</view>
 		</view>
 	</view>
@@ -23,11 +26,16 @@
 				
 			};
 		},
-		props:['img_url','good_name','plan_introduct','price'],
+		props:['img_url','good_name','plan_introduct','price','important','arrow'],
 	}
 </script>
 
 <style>
+	.arrow{
+		width: 40rpx;
+		height: 40rpx;
+
+	}
 .good_item{
 	margin-top: 20rpx;
 	display: flex;
@@ -36,7 +44,17 @@
 	width: 590rpx;
 	border-radius: 15rpx;
 	align-items: center;
-	
+	color: #000000;
+}
+.good_item2{
+	margin-top: 20rpx;
+	display: flex;
+	background-color: #2EB17F;
+	height: 110rpx;
+	width: 590rpx;
+	border-radius: 15rpx;
+	align-items: center;
+	color: #FFFFFF;
 }
 .img_bcg{
 	display: flex;
@@ -63,7 +81,7 @@
 	font-weight: bold;
 	font-size: 28rpx;
 	line-height: 36rpx;
-	color: #000000;
+
 }
 
 .item_introduct{
@@ -71,7 +89,7 @@
 	font-weight: normal;
 	font-size: 24rpx;
 	line-height: 30rpx;
-	color: #000000;
+
 }
 
 .show_price{
@@ -79,7 +97,7 @@
 	font-weight: bold;
 	font-size: 28rpx;
 	line-height: 36px;
-	color: #000000;
+
 	
 	position: absolute;
 	right: 105rpx;

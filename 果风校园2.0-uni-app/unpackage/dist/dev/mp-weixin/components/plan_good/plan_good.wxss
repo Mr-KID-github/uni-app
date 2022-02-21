@@ -1,4 +1,8 @@
 
+.arrow{
+		width: 40rpx;
+		height: 40rpx;
+}
 .good_item{
 	margin-top: 20rpx;
 	display: flex;
@@ -7,6 +11,17 @@
 	width: 590rpx;
 	border-radius: 15rpx;
 	align-items: center;
+	color: #000000;
+}
+.good_item2{
+	margin-top: 20rpx;
+	display: flex;
+	background-color: #2EB17F;
+	height: 110rpx;
+	width: 590rpx;
+	border-radius: 15rpx;
+	align-items: center;
+	color: #FFFFFF;
 }
 .img_bcg{
 	display: flex;
@@ -32,21 +47,19 @@
 	font-weight: bold;
 	font-size: 28rpx;
 	line-height: 36rpx;
-	color: #000000;
 }
 .item_introduct{
 	font-style: normal;
 	font-weight: normal;
 	font-size: 24rpx;
 	line-height: 30rpx;
-	color: #000000;
 }
 .show_price{
 	font-style: normal;
 	font-weight: bold;
 	font-size: 28rpx;
 	line-height: 36px;
-	color: #000000;
+
 	
 	position: absolute;
 	right: 105rpx;

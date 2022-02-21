@@ -2,20 +2,17 @@
 	<view>
 		<view class="background">
 			<view class="item_bar" @click="to_tea">
-				<text class="select_item" v-if="select=='tea'">水果茶</text>
-				<text class="unselect_item" v-if="select!='tea'">水果茶</text>
+				<text :class="select=='tea'?'select_item':'unselect_item'">水果茶</text>
 				<view class="select_background" v-if="select=='tea'"></view>
 			</view>
-			<view class="divider">|</view>
+			<image class="divider" src="/static/img/divider.svg"></image>
 			<view class="item_bar" @click="to_fishing">
-				<text class="select_item" v-if="select=='fishing'">水果捞</text>
-				<text class="unselect_item" v-if="select!='fishing'">水果捞</text>
+				<text :class="select=='fishing'?'select_item':'unselect_item'">水果捞</text>
 				<view class="select_background" v-if="select=='fishing'"></view>
 			</view>
-			<view class="divider">|</view>
+			<image class="divider" src="/static/img/divider.svg"></image>
 			<view class="item_bar" @click="to_fruit">
-				<text class="select_item" v-if="select=='fruit'">水果切</text>
-				<text class="unselect_item" v-if="select!='fruit'">水果切</text>
+				<text :class="select=='fruit'?'select_item':'unselect_item'">水果切</text>
 				<view class="select_background" v-if="select=='fruit'"></view>
 			</view>
 		</view>
@@ -27,8 +24,24 @@
 		name:"Goods_switching_bar",
 		data() {
 			return {
-				select: 'tea'
+				select: 'tea',
 			};
+		},
+		// props:['func'],
+		created() {
+			var that = this
+			// uni.$on('send_type',(custom_type)=>{
+			// 	console.log('接受到定制服务'  + custom_type)
+			// 	if (custom_type=='tea'){
+			// 		that.to_tea()
+			// 	}
+			// 	if (custom_type=='fishing'){
+			// 		that.to_fishing()
+			// 	}
+			// 	if (custom_type=='fruit'){
+			// 		that.to_fruit()
+			// 	}
+			// })
 		},
 		methods: {
 			to_tea(){
@@ -63,8 +76,9 @@
 	width: 160rpx;
 }
 .divider{
-	display: flex;
-	align-items: center;
+	width: 20rpx;
+	height: 60rpx;
+	margin-top: 20rpx;
 }
 .background{
 	background-color: white;
