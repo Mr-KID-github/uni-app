@@ -13,7 +13,7 @@
 		</view>
 		<goods_item :goods="goods" @send_msg="get_msg" custom=true :plan="plan"></goods_item>
 		<view style="height: 110rpx;"></view>
-		<custom_bar customstep="/static/img/customstep1.svg"></custom_bar>
+		<custom_bar customstep="/static/img/customstep1.svg" :plan="plan"></custom_bar>
 	</view>
 </template>
 
@@ -23,11 +23,11 @@
 			return {
 				goods:[],
 				plan: '',
-
 			}
 		},
-		onLoad(plan) {
-			this.plan = plan
+		onLoad() {
+			this.plan = getApp().globalData.select_plan
+			// console.log(this.plan)
 			console.log("商品界面onLoad中......")
 			var that = this
 			uni.request({

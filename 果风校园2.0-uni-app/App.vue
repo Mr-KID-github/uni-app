@@ -71,22 +71,8 @@
 			openid: "",
 			server:'https://qiubao.ltd/果宝',
 			cert: [],	// 购物车
-			custom_cert: [
-				// {
-				// 	'plan_name': '方案一',
-				// 	'goods_name': '苹果',
-				// 	'goods_introduct': '营养价值高，富含丰富维C',
-				// 	'goods_img': '/static/img/fruit1.jpg',
-				// 	'is_extend': false,		//是否加价
-				// },
-				// {
-				// 	'plan_name': '方案一',
-				// 	'goods_name': '香蕉',
-				// 	'goods_introduct': '营养价值高，富含丰富维C',
-				// 	'goods_img': '/static/img/fruit2.jpg',
-				// 	'is_extend': false,		//是否加价
-				// }
-			], //定制购物车
+			custom_cert: [], //定制购物车
+			select_plan: '', //选择的方案
 			total_price: 0, //总价
 			position:{
 				"phone": "",	//手机号（在页面初始化时从数据中提取）

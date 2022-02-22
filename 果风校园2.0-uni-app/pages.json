@@ -1,13 +1,29 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/goods/goods",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "果风校园-商品页"
+		    }
+		},
+		{
 		    "path" : "pages/Custom_service/Custom_service",
 		    "style" :                                                                                    
 		    {
 		        "navigationBarTitleText": "果风校园-定制服务",
 		        "enablePullDownRefresh": false
 		    }
-		},
+		},{
+		    "path" : "pages/order_plan/order_plan",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+		,
 		{
 		    "path" : "pages/Custom_goods/Custom_goods",
 		    "style" :                                                                                    
@@ -16,13 +32,7 @@
 		        "enablePullDownRefresh": false
 		    }
 		},
-		{
-		    "path" : "pages/goods/goods",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "果风校园-商品页"
-		    }
-		},
+
 
 		{
 		    "path" : "pages/address/address",
@@ -47,15 +57,6 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}   
-        ,{
-            "path" : "pages/order_plan/order_plan",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
         ,{
             "path" : "pages/pay_plan/pay_plan",
             "style" :                                                                                    

@@ -1,1 +1,0 @@
-<view><view data-event-opts="{{[['tap',[['get_position',['$event']]]]]}}" style="position:fixed;bottom:0;" bindtap="__e"><image class="customstep_img" src="{{customstep}}" mode="widthFix"></image></view></view>

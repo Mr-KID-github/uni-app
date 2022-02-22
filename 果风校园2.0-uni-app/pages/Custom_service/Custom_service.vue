@@ -126,8 +126,9 @@
 		methods: {
 			check_out(){
 				console.log("确认" + this.plan_name)
+				getApp().globalData.select_plan = this.plan_name
 				uni.navigateTo({
-					url: '/pages/Custom_goods/Custom_goods?plan=' + this.plan_name
+					url: '/pages/Custom_goods/Custom_goods'
 				})
 			},
 			change_Check(){

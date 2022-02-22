@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view style="height: 110rpx;"></view>
-		<custom_bar customstep="/static/img/customstep3.svg"></custom_bar>
+		<custom_bar customstep="/static/img/customstep3.svg" :plan="plan"></custom_bar>
 	</view>
 </template>
 
@@ -9,8 +9,11 @@
 	export default {
 		data() {
 			return {
-				
+				plan: ''
 			}
+		},
+		onLoad() {
+			this.plan = getApp().globalData.select_plan
 		},
 		methods: {
 			

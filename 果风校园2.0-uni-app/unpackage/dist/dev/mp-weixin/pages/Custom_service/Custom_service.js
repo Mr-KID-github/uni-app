@@ -104,10 +104,10 @@ var components
 try {
   components = {
     plan_select: function() {
-      return __webpack_require__.e(/*! import() | components/plan_select/plan_select */ "components/plan_select/plan_select").then(__webpack_require__.bind(null, /*! @/components/plan_select/plan_select.vue */ 66))
+      return __webpack_require__.e(/*! import() | components/plan_select/plan_select */ "components/plan_select/plan_select").then(__webpack_require__.bind(null, /*! @/components/plan_select/plan_select.vue */ 74))
     },
     plan_good: function() {
-      return __webpack_require__.e(/*! import() | components/plan_good/plan_good */ "components/plan_good/plan_good").then(__webpack_require__.bind(null, /*! @/components/plan_good/plan_good.vue */ 73))
+      return __webpack_require__.e(/*! import() | components/plan_good/plan_good */ "components/plan_good/plan_good").then(__webpack_require__.bind(null, /*! @/components/plan_good/plan_good.vue */ 81))
     }
   }
 } catch (e) {
@@ -290,8 +290,9 @@ var _default =
   methods: {
     check_out: function check_out() {
       console.log("确认" + this.plan_name);
+      getApp().globalData.select_plan = this.plan_name;
       uni.navigateTo({
-        url: '/pages/Custom_goods/Custom_goods?plan=' + this.plan_name });
+        url: '/pages/Custom_goods/Custom_goods' });
 
     },
     change_Check: function change_Check() {

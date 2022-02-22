@@ -57,6 +57,7 @@
 				console.log('接受到'  + select)
 				this.type = select
 			})
+			
 		},
 		props:['goods','custom','plan'],	//接受父组件传递过来的商品信息
 		methods: {
@@ -64,13 +65,13 @@
 			to_cert(good,method){
 				console.log("调用购物车方法")
 				// console.log(good)
-				
+				// console.log(this.plan)
 				if (this.custom){
 					var cert = getApp().globalData.custom_cert
 					// 组件传值通过下列方式获得
 					// console.log(JSON.parse(JSON.stringify(this.plan)))
 					var cert_good = {
-						"plan_name":JSON.parse(JSON.stringify(this.plan))['plan'],
+						"plan_name":this.plan,
 						"goods_name":good.goods_name,
 						"goods_num":good.goods_cert, 
 						"goods_introduct": good.details,
@@ -90,24 +91,33 @@
 					如果购物车中有商品，则执行循环
 				/*/
 				for (let i=0; i<length; i++){
-					var item = cert[i]
+					var item = cert[i]		// item是指购物车中的商品
 					// console.log(item.goods_name)
 					/*/
 						如果购物车中存在这个商品，则更新它的数量
 					/*/
 					if(item.goods_name==cert_good.goods_name){
 					    console.log("购物车中存在这个商品,更新它的数量")
-						item.goods_num = cert_good.goods_num
+						console.log(cert_good)
 						/*/
 							如果购物车中这个商品的数量为0，则从购物车中移除
 						/*/
-						if(item.goods_num==0 && JSON.parse(JSON.stringify(this.plan))['plan']==item.plan_name){
-							cert.splice(i,1);
-							console.log("移除之后的购物车：" + cert)
+						// 如果是定制服务的话发现购物车中有此商品的话直接退出或者移除退出
+						if (this.custom){
+							if(cert_good.goods_num==0 && getApp().globalData.select_plan==item.plan_name){
+								cert.splice(i,1);
+								console.log("移除之后的购物车：" + cert)
+							}
+						}else{
+							// 如果是普通自选就要判断是否是0，如果是0就移除后退出，如果不是0就更新数量后退出
+							if(cert_good.goods_num==0){
+								cert.splice(i,1);
+								console.log("移除之后的购物车：" + cert)
+								break
+							}
+							item.goods_num = cert_good.goods_num
 						}
-						if (!this.custom){
-							break
-						}
+						break
 					} 
 					/*/
 						如果购物车一直到购物车底都没有找到这个商品，则从购物车将其添加至购物车
