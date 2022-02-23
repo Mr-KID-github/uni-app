@@ -13,7 +13,7 @@ page{
 }
 .grad{
 	position: fixed;
-	bottom: 110rpx;
+	bottom: 95rpx;
 	height: 80rpx;
 	width: 100%;
 }

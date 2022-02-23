@@ -122,34 +122,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default =
 {
   name: "custom_bar",
   data: function data() {
-    return {};
-
+    return {
+      step: '',
+      step1: "/static/img/customstep1.svg",
+      unstep1: "/static/img/customstep1un.svg",
+      step2: "/static/img/customstep2.svg",
+      unstep2: "/static/img/customstep2un.svg",
+      step3: "/static/img/customstep3.svg",
+      unstep3: "/static/img/customstep3un.svg" };
 
   },
-  props: ['customstep'],
+  props: ['step_name'],
+  created: function created() {
+    // 此处注意！！！建议在组件中建立一个值来间接使用父组件中的值，最好不要直接在子组件中修改父组件传入的值
+    this.step = this.step_name;
+  },
   methods: {
-    get_position: function get_position(e) {
-      console.log(e);
-      if (e.detail.x <= 120) {
+    click_step: function click_step(e) {
+      console.log(e.currentTarget.id);
+      if (e.currentTarget.id == 'select_good') {
+        this.step = e.currentTarget.id;
         uni.navigateBack({
           url: "/pages/Custom_goods/Custom_goods" });
 
-      } else if (e.detail.x < 225 && e.detail.x > 120) {
+      } else if (e.currentTarget.id == 'order_plan') {
         if (getApp().globalData.custom_cert.length == 0) {
           uni.showModal({
             showCancel: false,
             content: "请选择配送商品" });
 
         } else {
+          this.step = e.currentTarget.id;
           uni.navigateTo({
             url: "/pages/order_plan/order_plan" });
 
         }
       } else {
+        this.step = e.currentTarget.id;
         // 调用支付接口
         // uni.requestPayment({
 

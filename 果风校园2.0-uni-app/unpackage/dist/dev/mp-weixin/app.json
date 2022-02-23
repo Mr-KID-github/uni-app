@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/pay_plan/pay_plan",
     "pages/Custom_service/Custom_service",
+    "pages/pay_plan/pay_plan",
     "pages/goods/goods",
     "pages/order_plan/order_plan",
     "pages/Custom_goods/Custom_goods",

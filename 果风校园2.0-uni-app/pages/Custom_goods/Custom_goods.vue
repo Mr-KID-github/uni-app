@@ -14,9 +14,7 @@
 		</view>
 		<goods_item :goods="goods" @send_msg="get_msg" custom=true :plan="plan"></goods_item>
 		<view style="height: 180rpx;"></view>
-		<image class="grad" src="/static/img/grad.svg"></image>
-		<text class="remind">依次点击下方的步骤进行定制:</text>
-		<custom_bar customstep="/static/img/customstep1.svg" :plan="plan"></custom_bar>
+		<custom_bar step_name="select_good"></custom_bar>
 	</view>
 </template>
 
@@ -76,7 +74,7 @@ page{
 }
 .grad{
 	position: fixed;
-	bottom: 110rpx;
+	bottom: 95rpx;
 	height: 80rpx;
 	width: 100%;
 }

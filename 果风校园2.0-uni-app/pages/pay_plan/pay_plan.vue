@@ -36,9 +36,7 @@
 		</view>
 		<!-- 底部导航 -->
 		<view style="height: 180rpx;"></view>
-		<image class="grad" src="/static/img/grad.svg"></image>
-		<text class="remind">依次点击下方的步骤进行定制:</text>
-		<custom_bar customstep="/static/img/customstep3.svg" :plan="plan"></custom_bar>
+		<custom_bar step_name="pay_plan"></custom_bar>
 	</view>
 </template>
 

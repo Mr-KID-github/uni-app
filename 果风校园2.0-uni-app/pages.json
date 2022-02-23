@@ -1,15 +1,6 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-		    "path" : "pages/pay_plan/pay_plan",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false
-		    }
-		    
-		},
-		{
 		    "path" : "pages/Custom_service/Custom_service",
 		    "style" :                                                                                    
 		    {
@@ -17,6 +8,16 @@
 		        "enablePullDownRefresh": false
 		    }
 		},
+		{
+		    "path" : "pages/pay_plan/pay_plan",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "支付订单",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+
 {
 		    "path" : "pages/goods/goods",
 		    "style" :                                                                                    
@@ -28,7 +29,7 @@
 		    "path" : "pages/order_plan/order_plan",
 		    "style" :                                                                                    
 		    {
-		        "navigationBarTitleText": "",
+		        "navigationBarTitleText": "确认订单",
 		        "enablePullDownRefresh": false
 		    }
 		    
