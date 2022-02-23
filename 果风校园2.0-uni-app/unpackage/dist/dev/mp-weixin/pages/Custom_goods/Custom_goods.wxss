@@ -2,6 +2,21 @@
 page{
 	background-color: #f6f9fc;
 }
+.remind{
+	position: fixed;
+	bottom: 120rpx;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 28rpx;
+	line-height: 40rpx;
+	color: #000000;
+}
+.grad{
+	position: fixed;
+	bottom: 110rpx;
+	height: 80rpx;
+	width: 100%;
+}
 .plan_goods_text{
 	font-style: normal;
 	font-weight: bold;

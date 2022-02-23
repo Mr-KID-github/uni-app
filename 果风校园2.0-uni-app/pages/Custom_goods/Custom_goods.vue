@@ -13,7 +13,9 @@
 			</view>
 		</view>
 		<goods_item :goods="goods" @send_msg="get_msg" custom=true :plan="plan"></goods_item>
-		<view style="height: 110rpx;"></view>
+		<view style="height: 180rpx;"></view>
+		<image class="grad" src="/static/img/grad.svg"></image>
+		<text class="remind">依次点击下方的步骤进行定制:</text>
 		<custom_bar customstep="/static/img/customstep1.svg" :plan="plan"></custom_bar>
 	</view>
 </template>
@@ -62,6 +64,21 @@
 <style>
 page{
 	background-color: #f6f9fc;
+}
+.remind{
+	position: fixed;
+	bottom: 120rpx;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 28rpx;
+	line-height: 40rpx;
+	color: #000000;
+}
+.grad{
+	position: fixed;
+	bottom: 110rpx;
+	height: 80rpx;
+	width: 100%;
 }
 .plan_goods_text{
 	font-style: normal;
