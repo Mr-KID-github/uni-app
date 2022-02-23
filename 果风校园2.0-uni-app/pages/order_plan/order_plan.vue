@@ -39,7 +39,12 @@
 				</view>
 			</view>
 		</view>
-		<text class="selected_num">已选择 {{2}}份 商品</text>
+		<position></position>
+		<view style="margin-bottom: 100rpx;">
+			<text class="optional_num">方案一可选 {{1}}杯 果茶 {{1}}份 果捞 {{3}}种 果盘</text>
+			<text class="selected_num">已选择 {{1}}杯 果茶 {{1}}份 果捞 {{1}}种 果盘</text>
+		</view>
+
 		<!-- 底部导航栏 -->
 		<view style="height: 110rpx;"></view>
 		<custom_bar customstep="/static/img/customstep2.svg" :plan="plan"></custom_bar>
@@ -67,6 +72,32 @@
 <style>
 	page{
 		background-color: #f6f9fc;
+	}
+	
+	.optional_num{
+		position: relative;
+		top: 20rpx;
+		margin-left: 280rpx;
+		
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24rpx;
+		line-height: 28rpx;
+		
+
+		color: #000000;
+	}
+	.selected_num{
+		position: relative;
+		top: 20rpx;
+		margin-left: 150rpx;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 36rpx;
+		line-height: 46rpx;
+		/* identical to box height */
+		
+		color: #000000;
 	}
 .good{
 	width: 680rpx;
@@ -161,16 +192,5 @@
 		background-color: white;
 		margin-top: 40rpx;
 	}
-.selected_num{
-	position: relative;
-	top: 20rpx;
-	margin-left: 440rpx;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 36rpx;
-	line-height: 46rpx;
-	/* identical to box height */
-	
-	color: #000000;
-}
+
 </style>

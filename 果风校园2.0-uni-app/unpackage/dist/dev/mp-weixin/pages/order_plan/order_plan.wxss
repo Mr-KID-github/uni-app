@@ -2,6 +2,31 @@
 page{
 		background-color: #f6f9fc;
 }
+.optional_num{
+		position: relative;
+		top: 20rpx;
+		margin-left: 280rpx;
+		
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24rpx;
+		line-height: 28rpx;
+		
+
+		color: #000000;
+}
+.selected_num{
+		position: relative;
+		top: 20rpx;
+		margin-left: 150rpx;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 36rpx;
+		line-height: 46rpx;
+		/* identical to box height */
+		
+		color: #000000;
+}
 .good{
 	width: 680rpx;
 	height: 170rpx;
@@ -94,16 +119,5 @@ page{
 		background-color: white;
 		margin-top: 40rpx;
 }
-.selected_num{
-	position: relative;
-	top: 20rpx;
-	margin-left: 440rpx;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 36rpx;
-	line-height: 46rpx;
-	/* identical to box height */
-	
-	color: #000000;
-}
+
 

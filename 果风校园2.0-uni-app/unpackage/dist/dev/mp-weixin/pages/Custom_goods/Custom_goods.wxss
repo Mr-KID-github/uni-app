@@ -2,6 +2,14 @@
 page{
 	background-color: #f6f9fc;
 }
+.plan_goods_text{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 21rpx;
+	line-height: 24rpx;
+	
+	color: #000000;
+}
 .arrow2{
 	width: 30rpx;
 	height: 30rpx;

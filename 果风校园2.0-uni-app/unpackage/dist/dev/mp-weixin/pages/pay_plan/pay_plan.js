@@ -94,7 +94,7 @@ var components
 try {
   components = {
     custom_bar: function() {
-      return __webpack_require__.e(/*! import() | components/custom_bar/custom_bar */ "components/custom_bar/custom_bar").then(__webpack_require__.bind(null, /*! @/components/custom_bar/custom_bar.vue */ 88))
+      return __webpack_require__.e(/*! import() | components/custom_bar/custom_bar */ "components/custom_bar/custom_bar").then(__webpack_require__.bind(null, /*! @/components/custom_bar/custom_bar.vue */ 109))
     }
   }
 } catch (e) {

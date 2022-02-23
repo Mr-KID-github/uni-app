@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/goods/goods",
     "pages/Custom_service/Custom_service",
+    "pages/goods/goods",
     "pages/order_plan/order_plan",
     "pages/Custom_goods/Custom_goods",
     "pages/address/address",

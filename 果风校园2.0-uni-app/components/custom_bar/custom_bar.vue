@@ -23,10 +23,22 @@
 						url: "/pages/Custom_goods/Custom_goods"	
 					})
 				} else if (e.detail.x<225 && e.detail.x>120){
-					uni.navigateTo({
-						url: "/pages/order_plan/order_plan"
-					})
+					if (getApp().globalData.custom_cert.length==0){
+						uni.showModal({
+							showCancel: false,
+							content: "请选择配送商品",
+						})
+					} else {
+						uni.navigateTo({
+							url: "/pages/order_plan/order_plan"
+						})	
+					}
 				} else {
+					// 调用支付接口
+					// uni.requestPayment({
+						
+					// })
+					// 支付成功则跳转订单界面
 					uni.navigateTo({
 						url: "/pages/pay_plan/pay_plan"	
 					})

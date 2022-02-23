@@ -24,7 +24,10 @@
 				</view>
 			</view>
 		</view>
-		<position></position>
+		<!-- 地址 -->
+		<view style="margin-bottom: 180rpx;">
+			<position></position>
+		</view>
 		<view class="pay">
 			<image src="/static/img/pay.svg"></image>
 		</view>

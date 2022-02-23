@@ -54,8 +54,8 @@
 						}
 					},
 					complete:function(res){
-						uni.redirectTo({
-							url: "/pages/order_confirm/order_confirm"
+						uni.navigateBack({
+							delta:1
 						})
 					}
 				})

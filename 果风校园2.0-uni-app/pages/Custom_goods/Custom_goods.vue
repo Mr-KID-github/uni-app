@@ -3,8 +3,9 @@
 		<!-- 商品选择栏 -->
 		<Goods_bar></Goods_bar>
 		<view style="display: flex; justify-content: center; margin-top: 36rpx;">
-			<view style="display: flex; justify-content: space-between; width: 680rpx;">
+			<view style="display: flex; justify-content: space-between; width: 680rpx; align-items: center;">
 				<text class="text_item">商品列表</text>
+				<text class="plan_goods_text">方案一可选 {{1}}/{{2}} 果茶 {{1}}/{{1}} 果捞 {{1}}/{{3}} 果盘</text>
 				<view style="display: flex; align-items: center;">
 					<text class="text_item">销售热度</text>
 					<image src="/static/img/arrow.svg" class="arrow2"></image>
@@ -61,6 +62,14 @@
 <style>
 page{
 	background-color: #f6f9fc;
+}
+.plan_goods_text{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 21rpx;
+	line-height: 24rpx;
+	
+	color: #000000;
 }
 .arrow2{
 	width: 30rpx;
