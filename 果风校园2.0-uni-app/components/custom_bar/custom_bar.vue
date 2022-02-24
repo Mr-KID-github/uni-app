@@ -32,7 +32,7 @@
 				console.log(e.currentTarget.id)
 				if (e.currentTarget.id == 'select_good'){
 					this.step = e.currentTarget.id
-					uni.navigateBack({
+					uni.redirectTo({
 						url: "/pages/Custom_goods/Custom_goods"	
 					})
 				} else if (e.currentTarget.id == 'order_plan'){
@@ -43,20 +43,27 @@
 						})
 					} else {
 						this.step = e.currentTarget.id
-						uni.navigateTo({
+						uni.redirectTo({
 							url: "/pages/order_plan/order_plan"
 						})	
 					}
 				} else {
-					this.step = e.currentTarget.id
-					// 调用支付接口
-					// uni.requestPayment({
-						
-					// })
-					// 支付成功则跳转订单界面
-					uni.navigateTo({
-						url: "/pages/pay_plan/pay_plan"	
-					})
+					if (getApp().globalData.custom_cert.length==0){
+						uni.showModal({
+							showCancel: false,
+							content: "请选择配送商品",
+						})
+					} else {
+						this.step = e.currentTarget.id
+						// 调用支付接口
+						// uni.requestPayment({
+							
+						// })
+						// 支付成功则跳转订单界面
+						uni.redirectTo({
+							url: "/pages/pay_plan/pay_plan"	
+						})
+					}
 				}
 			}
 		}

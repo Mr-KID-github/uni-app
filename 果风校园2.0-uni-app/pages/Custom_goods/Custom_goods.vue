@@ -45,6 +45,20 @@
 					console.log("成功获取到商品信息") 
 					console.log(res.data)
 					that.goods = res.data
+					
+					// 通过对比购物车里的商品和调用接口的商品更新商品状态（是否在购物车中）
+					for (let i=0; i<getApp().globalData.custom_cert.length; i++){
+						var cert_item = getApp().globalData.custom_cert[i]
+						for (let j=0; j<that.goods.length; j++){
+							
+							var goods_item = that.goods[j]
+							if (cert_item.goods_name == goods_item.goods_name){
+								goods_item.goods_cert = cert_item.goods_num
+								console.log("发现购物车中有此商品，更新商品的数据！！！")
+								break
+							}
+						}
+					}
 				}
 			})
 		},

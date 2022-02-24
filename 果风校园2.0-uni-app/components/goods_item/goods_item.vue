@@ -6,6 +6,7 @@
 				<view class="good" v-if="item.goods_type==type">
 					<view class="img_bcg">
 						<image class="good_img" :src="item.goods_picture1"></image>
+						<image class="no_sides" src="/static/img/no_sides.svg" v-if="item.goods_number==0"></image>
 					</view>
 					<view class="good_text">
 						<text class="good_name">{{item.goods_name}}</text>
@@ -18,7 +19,6 @@
 						<text class="num_text">{{ item.goods_cert }}</text>
 						<image src="/static/img/add_num.svg" class="num_img" @click="add_num" :id="item.goods_name"></image>
 					</view>
-					<image class="no_sides" src="/static/img/no_sides.svg" v-if="item.goods_number==0"></image>
 				</view>
 			</view>
 			<!-- 定制调用 -->
@@ -26,6 +26,7 @@
 				<view class="good" v-if="item.goods_type==type">
 					<view class="img_bcg">
 						<image class="good_img" :src="item.goods_picture1"></image>
+						<image class="no_sides" src="/static/img/no_sides.svg" v-if="item.goods_number==0"></image>
 					</view>
 					<view class="good_text">
 						<text class="good_name">{{item.goods_name}}</text>
@@ -34,7 +35,6 @@
 					<image class="good_add" src="/static/img/Add.svg" v-if="item.goods_number!=0 && item.goods_cert==0" :id="item.goods_name" @click="add_num"></image>
 					<image class="good_add" src="/static/img/No.svg" v-if="item.goods_number==0"></image>
 					<image src="/static/img/added.svg" class="good_add" @click="del_num" :id="item.goods_name" v-if="item.goods_cert != 0"></image>
-					<image class="no_sides" src="/static/img/no_sides.svg" v-if="item.goods_number==0"></image>
 				</view>
 			</view>
 		</view>
@@ -57,7 +57,6 @@
 				console.log('接受到'  + select)
 				this.type = select
 			})
-			
 		},
 		props:['goods','custom','plan'],	//接受父组件传递过来的商品信息
 		methods: {
@@ -281,7 +280,6 @@
 	width: 120rpx;
 	height: 40rpx;
 	position: absolute;
-	left:53rpx;
-	margin-top: 100rpx;
+	top: 85rpx;
 }
 </style>

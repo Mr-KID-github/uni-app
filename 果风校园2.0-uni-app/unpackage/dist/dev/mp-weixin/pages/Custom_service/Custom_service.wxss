@@ -74,12 +74,11 @@ page{
 	
 	color: #0A0909;
 }
-input{
+.time_item view{
 	font-style: normal;
 	font-weight: 600;
-	font-size: 30rpx;
-	line-height: 75rpx;
-	margin-right: 42rpx;
+	font-size: 28rpx;
+	margin-right: 18rpx;
 	
 	color: #0A0909;
 }
@@ -98,10 +97,10 @@ input{
 }
 .Notification_item text{
 	font-style: normal;
-	font-weight: 600;
-	font-size: 34rpx;
-	line-height: 75rpx;
-	margin-left: 30rpx;
+	font-weight: 800;
+	font-size: 25rpx;
+	line-height: 25rpx;
+	margin-left: 20rpx;
 	color: #0A0909;
 }
 .Notification_item input{

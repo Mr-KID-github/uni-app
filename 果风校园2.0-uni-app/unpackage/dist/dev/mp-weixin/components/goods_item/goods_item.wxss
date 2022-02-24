@@ -79,7 +79,6 @@
 	width: 120rpx;
 	height: 40rpx;
 	position: absolute;
-	left:53rpx;
-	margin-top: 100rpx;
+	top: 85rpx;
 }
 

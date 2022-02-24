@@ -25,16 +25,31 @@
 		<view class="plan_time">
 			<text class="plan_title">配送次数 & 配送周期</text>
 			<view class="time_content">
-				<view class="time_item">
+				<view class="time_item" v-if="plan_name!='自定义'">
 					<image src="/static/img/times.svg"></image>
-					<text v-if="plan_name!='自定义'">{{plan_name=='方案一'?plan1_settings.settings_times:(plan_name=='方案二'?plan2_settings.settings_times:custom_settings.settings_times)}}</text>
-					<input v-if="plan_name=='自定义'" id="times_input" style="width: 20rpx;"/>
+					<text>{{plan_name=='方案一'?plan1_settings.settings_times:plan2_settings.settings_times}}</text>
 					<text>times</text>
 				</view>
-				<view class="time_item">
+				
+				<!-- 点击展示自定义弹窗 -->
+				<view class="time_item" @click="show_Model" v-if="plan_name=='自定义'">
+					<image src="/static/img/times.svg"></image>
+					<text v-if="custom_settings.settings_times">{{custom_settings.settings_times}}</text>
+					<view v-if="!custom_settings.settings_times" id="times_input">{{!custom_settings.settings_times?'自定义':custom_settings.settings_times}}</view>
+					<text>times</text>
+				</view>
+				
+				<view class="time_item" v-if="plan_name!='自定义'">
 					<image src="/static/img/days.svg"></image>
-					<text v-if="plan_name!='自定义'">{{plan_name=='方案一'?plan1_settings.settings_days:(plan_name=='方案二'?plan2_settings.settings_days:custom_settings.settings_days)}}</text>
-					<input v-if="plan_name=='自定义'" id="days_input" style="width: 40rpx;"/>
+					<text>{{plan_name=='方案一'?plan1_settings.settings_days:plan2_settings.settings_days}}</text>
+					<text>days</text>
+				</view>
+				
+				<!-- 点击展示自定义弹窗 -->
+				<view class="time_item" @click="show_Model" v-if="plan_name=='自定义'" >
+					<image src="/static/img/days.svg"></image>
+					<text v-if="custom_settings.settings_days">{{custom_settings.settings_days}}</text>
+					<view id="days_input" v-if="!custom_settings.settings_days">{{!custom_settings.settings_days?'自定义':custom_settings.settings_days}}</view>
 					<text>days</text>
 				</view>
 			</view>
@@ -46,8 +61,7 @@
 			<view style="display: flex; align-items: center;">
 				<view class="Notification_item">
 					<image src="/static/img/Notification.svg"></image>
-					<text v-if="plan_name!='自定义'">{{plan_name=='方案一'?plan1_settings.setting_clock_time:(plan_name=='方案二'?plan2_settings.setting_clock_time:custom_settings.setting_clock_time)}}</text>
-					<input v-if="plan_name=='自定义'" id="Notification_input"/>
+					<text>15:00PM - 18:00PM</text>
 				</view>
 				<text class="Notification_Check_text">是否-提醒</text>
 				<image src="/static/img/Notification_Check.svg" class="Notification_img"  v-if="Notification_Check" @click="change_Check"></image>
@@ -62,6 +76,12 @@
 		<view class="button">
 			<image src="/static/img/REVIEW_MENU.svg"></image>
 			<image src="/static/img/CHECK_OUT.svg" @click="check_out"></image>
+		</view>
+		
+		
+		<!-- 自定义弹窗 -->
+		<view v-if="show_select">
+			<custom_select></custom_select>
 		</view>
 	</view>
 </template>
@@ -79,9 +99,22 @@
 				plan1_price: 0,
 				plan2_price:0,
 				custom_price:0,
+				
+				show_select:false, 		// 是否展示自定义弹窗
 			}
 		},
 		onLoad() {
+			// 接受子组件传递过来的是否展示自定义弹窗的数据
+			uni.$on('unshow',(show)=>{
+				console.log('接受是否展示'  + show)
+				this.show_select = show
+			})
+			uni.$on('custom_value',(value)=>{
+				console.log('接受是否展示'  + value)
+				// 将自定义方案的设置更新到本地
+				this.custom_settings.settings_times = value[1]
+				this.custom_days = value[0]
+			})
 			// 获取方案数据
 			var that = this
 			uni.request({
@@ -97,7 +130,7 @@
 				success:function(res){
 					console.log("成功获取到方案信息") 
 					// console.log(res.data.data)
-					// console.log(res.data.setting)
+					console.log(res.data.setting)
 					that.plan_item = res.data.data
 					for (let i = 0 ; i<res.data.setting.length; i++ ){
 						var item = res.data.setting[i]
@@ -124,6 +157,10 @@
 			})
 		},
 		methods: {
+			//展示自定义弹窗
+			show_Model(){
+				this.show_select = true
+			},
 			check_out(){
 				console.log("确认" + this.plan_name)
 				getApp().globalData.select_plan = this.plan_name
@@ -224,15 +261,16 @@ page{
 	
 	color: #0A0909;
 }
-input{
+
+.time_item view{
 	font-style: normal;
 	font-weight: 600;
-	font-size: 30rpx;
-	line-height: 75rpx;
-	margin-right: 42rpx;
+	font-size: 28rpx;
+	margin-right: 18rpx;
 	
 	color: #0A0909;
 }
+
 .Notification_item{
 	width: 350rpx;
 	height: 85rpx;
@@ -248,10 +286,10 @@ input{
 }
 .Notification_item text{
 	font-style: normal;
-	font-weight: 600;
-	font-size: 34rpx;
-	line-height: 75rpx;
-	margin-left: 30rpx;
+	font-weight: 800;
+	font-size: 25rpx;
+	line-height: 25rpx;
+	margin-left: 20rpx;
 	color: #0A0909;
 }
 .Notification_item input{
