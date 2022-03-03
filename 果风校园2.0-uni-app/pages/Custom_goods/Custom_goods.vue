@@ -5,7 +5,7 @@
 		<view style="display: flex; justify-content: center; margin-top: 36rpx;">
 			<view style="display: flex; justify-content: space-between; width: 680rpx; align-items: center;">
 				<text class="text_item">商品列表</text>
-				<text class="plan_goods_text">方案一可选 {{1}}/{{2}} 果茶 {{1}}/{{1}} 果捞 {{1}}/{{3}} 果盘</text>
+				<text class="plan_goods_text">{{plan}}可选 {{num.guocha}}/{{num.totalguocha}} 果茶 {{num.guolao}}/{{num.totalguolao}} 果捞 {{num.guopan}}/{{num.totalguopan}} 果盘</text>
 				<view style="display: flex; align-items: center;">
 					<text class="text_item">销售热度</text>
 					<image src="/static/img/arrow.svg" class="arrow2"></image>
@@ -21,9 +21,19 @@
 <script>
 	export default {
 		data() {
+			if (getApp().globalData.select_plan == "方案一") {
+				var num = getApp().globalData.plan1_num
+			} 
+			else if (getApp().globalData.select_plan == "方案二"){
+				var num = getApp().globalData.plan2_num
+			}
+			else{
+				var num = getApp().globalData.plan3_num
+			}
 			return {
 				goods:[],
 				plan: '',
+				num,
 			}
 		},
 		onLoad() {
@@ -52,9 +62,9 @@
 						for (let j=0; j<that.goods.length; j++){
 							
 							var goods_item = that.goods[j]
-							if (cert_item.goods_name == goods_item.goods_name && cert_item.plan_name==getApp().globalData.select_plan){
+							if (cert_item.goods_name == goods_item.goods_name&&getApp().globalData.select_plan==cert_item.plan_name){
 								goods_item.goods_cert = cert_item.goods_num
-								console.log("发现购物车中有此商品，更新商品的状态！！！")
+								console.log("发现购物车中有此商品，更新商品的数据！！！")
 								break
 							}
 						}

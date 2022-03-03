@@ -99,7 +99,6 @@
 				plan1_price: 0,
 				plan2_price:0,
 				custom_price:0,
-				
 				show_select:false, 		// 是否展示自定义弹窗
 			}
 		},

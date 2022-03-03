@@ -1,5 +1,5 @@
 
-.customstep_img1{
+.customstep_img1 {
 	width: 250rpx;
 	height: 100rpx;
 	z-index: 3;
@@ -7,12 +7,12 @@
 	left: 45rpx;
 	border-radius: 80rpx 0 0 80rpx;
 }
-.customstep_img2{
+.customstep_img2 {
 	z-index: 2;
 	width: 250rpx;
 	height: 100rpx;
 }
-.customstep_img3{
+.customstep_img3 {
 	width: 250rpx;
 	height: 100rpx;
 	z-index: 1;

@@ -41,8 +41,8 @@
 		</view>
 		<position></position>
 		<view style="margin-bottom: 100rpx;">
-			<text class="optional_num">方案一可选 {{1}}杯 果茶 {{1}}份 果捞 {{3}}种 果盘</text>
-			<text class="selected_num">已选择 {{1}}杯 果茶 {{1}}份 果捞 {{1}}种 果盘</text>
+			<text class="optional_num">方案一可选 {{num.totalguocha}}杯 果茶 {{num.totalguolao}}份 果捞 {{num.totalguopan}}种 果盘</text>
+			<text class="selected_num">已选择 {{num.guocha}}杯 果茶 {{num.guolao}}份 果捞 {{num.guopan}}种 果盘</text>
 		</view>
 
 		<!-- 底部导航栏 -->
@@ -54,9 +54,19 @@
 <script>
 	export default {
 		data() {
+			if (getApp().globalData.select_plan == "方案一") {
+				var num = getApp().globalData.plan1_num
+			} 
+			else if (getApp().globalData.select_plan == "方案二"){
+				var num = getApp().globalData.plan2_num
+			}
+			else{
+				var num = getApp().globalData.plan3_num
+			}
 			return {
 				custom_goods:[],
 				plan: '',
+				num,
 			}
 		},
 		onLoad() {

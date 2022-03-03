@@ -5,7 +5,7 @@
 			var that = this
 			// 获取用户唯一标识 openID
 			uni.login({
-			  provider: 'weixin',
+			  // provider: 'weixin',
 			  success: function (loginRes) {
 			    // console.log(loginRes.code);
 				uni.request({
@@ -68,6 +68,13 @@
 			console.log('App Hide')
 		},
 		globalData: {
+			order:{
+				goods: [],	//订单的所有商品
+				position:'',//配送地址信息
+				order_time:'',//建立订单信息
+				order_money:'',//订单金额
+				order_phone: '', //订单联系电话
+			},//提交的订单信息
 			openid: "",
 			server:'https://qiubao.ltd/果宝',
 			cert: [],	// 购物车
@@ -79,7 +86,32 @@
 				"school": "",	//学校（在页面初始化时从数据中提取）
 				"apartment": "",	//公寓号（在页面初始化时从数据中提取）
 				"dormitory": "", //寝室号（在页面初始化时从数据中提取）
-			}
+			},
+			plan1_num:{
+				"guocha":0,
+				"totalguocha":2,
+				"guolao":0,
+				"totalguolao":1,
+				"guopan":0,
+				"totalguopan":2,
+			},
+			plan2_num:{
+				"guocha":0,
+				"totalguocha":3,
+				"guolao":0,
+				"totalguolao":3,
+				"guopan":0,
+				"totalguopan":3,
+			},
+			plan3_num:{
+				"guocha":0,
+				"totalguocha":50,
+				"guolao":0,
+				"totalguolao":50,
+				"guopan":0,
+				"totalguopan":50,
+			},
+			
 		}
 	}
 </script>
