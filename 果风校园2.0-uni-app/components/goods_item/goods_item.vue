@@ -91,21 +91,25 @@
 				/*/
 				for (let i=0; i<length; i++){
 					var item = cert[i]		// item是指购物车中的商品
-					// console.log(item.goods_name)
+					// console.log(item)
 					/*/
 						如果购物车中存在这个商品，则更新它的数量
 					/*/
 					if(item.goods_name==cert_good.goods_name){
-					    console.log("购物车中存在这个商品,更新它的数量")
 						console.log(cert_good)
 						/*/
 							如果购物车中这个商品的数量为0，则从购物车中移除
 						/*/
-						// 如果是定制服务的话发现购物车中有此商品的话直接退出或者移除退出
+						// 如果是定制服务的话发现购物车中有此方案商品的话直接退出或者移除退出
 						if (this.custom){
-							if(cert_good.goods_num==0 && getApp().globalData.select_plan==item.plan_name){
-								cert.splice(i,1);
-								console.log("移除之后的购物车：" + cert)
+							console.log(cert_good.plan_name)
+							if (item.plan_name == getApp().globalData.select_plan){
+								 console.log("购物车中存在这个方案商品,更新它的数量")
+								if(cert_good.goods_num==0){
+									cert.splice(i,1);
+									console.log("移除之后的购物车：" + cert)
+									break
+								}
 							}
 						}else{
 							// 如果是普通自选就要判断是否是0，如果是0就移除后退出，如果不是0就更新数量后退出
@@ -115,8 +119,9 @@
 								break
 							}
 							item.goods_num = cert_good.goods_num
+							break
 						}
-						break
+						
 					} 
 					/*/
 						如果购物车一直到购物车底都没有找到这个商品，则从购物车将其添加至购物车

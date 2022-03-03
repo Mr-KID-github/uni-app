@@ -1718,7 +1718,10 @@ var render = function() {
     "v-uni-view",
     { attrs: { _i: 0 } },
     [
-      _c("v-uni-view", { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } }),
+      _c("v-uni-view", {
+        staticClass: _vm._$g(1, "sc"),
+        attrs: { catchtouchmove: "ture", _i: 1 }
+      }),
       _c(
         "v-uni-view",
         { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
@@ -1903,7 +1906,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../软件安装/HBuilderX.3.3.5.20211229.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.Model[data-v-645ec94c]{\n\twidth: 100%;\n\tposition: fixed;\n\tbottom: 0rpx;\n}\n.pickerBtn[data-v-645ec94c] {\n\twidth: 680rpx;\n\theight: 101rpx;\n\tline-height: 101rpx;\n\tbackground-color: #fff;\n\tfont-size: 40rpx;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tposition: absolute;\n\tz-index: 1;\n\tborder-radius: 40rpx 40rpx 0rpx 0rpx;\n}\n.cancer[data-v-645ec94c] {\n\tcolor: #0076FF;\n\tpadding-left: 40rpx;\n\tbox-sizing: border-box;\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n}\n.confirm[data-v-645ec94c] {\n\tcolor: #FE4533;\n\tpadding-right: 40rpx;\n\tbox-sizing: border-box;\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n}\n.picker-view[data-v-645ec94c] {\n        width: 680rpx;\n\t\theight: 300rpx;\n\t\tmargin-top: 60rpx;\n\t\ttext-align: center;\n\t\tbackground-color: #f8f8f6;\n}\n.item[data-v-645ec94c]{\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n\t\n\tcolor: #0A0909;\n}\n.select_title[data-v-645ec94c]{\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n\tmargin-right: 42rpx;\n\t\n\tcolor: #0A0909;\n\t\n\tbackground-color: white;\n\twidth: 100%;\n\tz-index: 0;\n\ttext-align: center;\n}\n.mask[data-v-645ec94c] {\n\tposition:absolute;\n\ttop:0;\n\tleft:0;\n\tmargin-top: 0%;\n\twidth: 100%;\n\theight:127vh;\n\tz-index: 0;\n\tbackground: rgba(0,0,0,0.5);\n}\n\n", ""]);
+exports.push([module.i, "\n.Model[data-v-645ec94c]{\n\twidth: 100%;\n\tposition: fixed;\n\tbottom: 0rpx;\n}\n.pickerBtn[data-v-645ec94c] {\n\twidth: 680rpx;\n\theight: 101rpx;\n\tline-height: 101rpx;\n\tbackground-color: #fff;\n\tfont-size: 40rpx;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tposition: absolute;\n\tz-index: 1;\n\tborder-radius: 40rpx 40rpx 0rpx 0rpx;\n}\n.cancer[data-v-645ec94c] {\n\tcolor: #0076FF;\n\tpadding-left: 40rpx;\n\tbox-sizing: border-box;\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n}\n.confirm[data-v-645ec94c] {\n\tcolor: #FE4533;\n\tpadding-right: 40rpx;\n\tbox-sizing: border-box;\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n}\n.picker-view[data-v-645ec94c] {\n        width: 680rpx;\n\t\theight: 300rpx;\n\t\tmargin-top: 60rpx;\n\t\ttext-align: center;\n\t\tbackground-color: #f8f8f6;\n}\n.item[data-v-645ec94c]{\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n\t\n\tcolor: #0A0909;\n}\n.select_title[data-v-645ec94c]{\n\tfont-style: normal;\n\tfont-weight: 600;\n\tfont-size: 30rpx;\n\tline-height: 75rpx;\n\tmargin-right: 42rpx;\n\t\n\tcolor: #0A0909;\n\t\n\tbackground-color: white;\n\twidth: 100%;\n\tz-index: 0;\n\ttext-align: center;\n}\n.mask[data-v-645ec94c] {\n\tposition:absolute;\n\ttop:0;\n\tleft:0;\n\tmargin-top: 0%;\n\twidth: 100%;\n\theight:127vh;\n\n\tz-index: 0;\n\tbackground: rgba(0,0,0,0.5);\n}\n\n", ""]);
 // Exports
 module.exports = exports;
 

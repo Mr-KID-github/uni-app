@@ -2,7 +2,7 @@
 	<view>
 		<!-- 自定义选择器 -->
 		<!-- 遮罩层 -->
-		<view class="mask"></view>
+		<view class="mask"  catchtouchmove='ture'></view> 
 		
 		<view class="Model">
 			<view class="pickerBtn">
@@ -141,6 +141,7 @@
 		margin-top: 0%;
 		width: 100%;
 		height:127vh;
+	
 		z-index: 0;
 		background: rgba(0,0,0,0.5);
 	}

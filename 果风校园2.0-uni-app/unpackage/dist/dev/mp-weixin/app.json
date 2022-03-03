@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/Custom_service/Custom_service",
     "pages/index/index",
+    "pages/Custom_service/Custom_service",
     "pages/pay_plan/pay_plan",
     "pages/goods/goods",
     "pages/order_plan/order_plan",
@@ -16,5 +16,6 @@
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff"
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

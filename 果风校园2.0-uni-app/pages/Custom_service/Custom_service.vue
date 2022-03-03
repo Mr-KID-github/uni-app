@@ -113,7 +113,7 @@
 				console.log('接受是否展示'  + value)
 				// 将自定义方案的设置更新到本地
 				this.custom_settings.settings_times = value[1]
-				this.custom_days = value[0]
+				this.custom_settings.settings_days = value[0]
 			})
 			// 获取方案数据
 			var that = this
@@ -181,6 +181,7 @@
 </script>
 
 <style>
+	
 page{
 	background-color: #ffffff;
 	display: flex;

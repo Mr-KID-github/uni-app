@@ -52,9 +52,9 @@
 						for (let j=0; j<that.goods.length; j++){
 							
 							var goods_item = that.goods[j]
-							if (cert_item.goods_name == goods_item.goods_name){
+							if (cert_item.goods_name == goods_item.goods_name && cert_item.plan_name==getApp().globalData.select_plan){
 								goods_item.goods_cert = cert_item.goods_num
-								console.log("发现购物车中有此商品，更新商品的数据！！！")
+								console.log("发现购物车中有此商品，更新商品的状态！！！")
 								break
 							}
 						}

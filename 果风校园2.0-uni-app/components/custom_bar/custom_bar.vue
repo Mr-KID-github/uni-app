@@ -36,16 +36,30 @@
 						url: "/pages/Custom_goods/Custom_goods"	
 					})
 				} else if (e.currentTarget.id == 'order_plan'){
+					// 这里首先进行判断，如果购物车里没有商品的话就直接弹窗
 					if (getApp().globalData.custom_cert.length==0){
 						uni.showModal({
 							showCancel: false,
 							content: "请选择配送商品",
 						})
 					} else {
-						this.step = e.currentTarget.id
-						uni.redirectTo({
-							url: "/pages/order_plan/order_plan"
-						})	
+						// 如果购物车里有商品的话就通过遍历购物车里的商品判断是否存在该方案的商品
+						for (let i=0; i<getApp().globalData.custom_cert.length; i++){
+							var item = getApp().globalData.custom_cert[i]
+							if (item.plan_name==getApp().globalData.select_plan){
+								this.step = e.currentTarget.id
+								uni.redirectTo({
+									url: "/pages/order_plan/order_plan"
+								})	
+								break
+							} 
+							if (i==(getApp().globalData.custom_cert.length-1)){
+								uni.showModal({
+									showCancel: false,
+									content: "请选择配送商品",
+								})
+							}
+						}
 					}
 				} else {
 					if (getApp().globalData.custom_cert.length==0){
