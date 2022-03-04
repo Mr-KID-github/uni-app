@@ -135,9 +135,9 @@
 						  success (res) {
 							if (res.confirm) {
 							  console.log('用户点击确定')
-							 //  wx.reLaunch({
-								// url: '/pages/group_buy/group_buy',
-							 //  })
+							  wx.reLaunch({
+								url: '/pages/review_bill/review_bill',
+							  })
 							}
 						  }
 						})

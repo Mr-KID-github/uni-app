@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/review_bill/review_bill",
     "pages/index/index",
     "pages/Custom_service/Custom_service",
     "pages/pay_plan/pay_plan",
@@ -16,6 +17,5 @@
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#ffffff"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

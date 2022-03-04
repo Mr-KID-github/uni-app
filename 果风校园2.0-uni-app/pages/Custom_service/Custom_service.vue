@@ -13,13 +13,13 @@
 			<text class="plan_goods_title">自选-搭配</text>
 			<!-- 导入计划商品组件 -->
 			<view @click="to_shop" id="fruit">
-				<plan_good price="0" img_url="/static/img/fruit1.jpg" plan_introduct="选择您想要配送的水果" good_name="自选水果通道" arrow=true></plan_good>
+				<plan_good price="0" img_url="/static/img/fruit1.jpg" plan_introduct="随意选择您想要配送的水果" good_name="自选水果" arrow=true></plan_good>
 			</view>
 			<view @click="to_shop" id="fishing">
-				<plan_good price="0" img_url="/static/img/fishing2.jpg" plan_introduct="选择您想要配送的果捞" good_name="自选果捞通道" arrow=true></plan_good>
+				<plan_good price="0" img_url="/static/img/fishing2.jpg" plan_introduct="随意选择您想要配送的果捞" good_name="自选果捞" arrow=true></plan_good>
 			</view>
 			<view @click="to_shop" id="tea">
-				<plan_good price="0" img_url="/static/img/tea5.jpg" plan_introduct="选择您想要配送的果茶" good_name="自选果茶通道" arrow=true></plan_good>
+				<plan_good price="0" img_url="/static/img/tea5.jpg" plan_introduct="随意选择您想要配送的果茶" good_name="自选果茶" arrow=true></plan_good>
 			</view>
 		</view>
 		<view class="plan_time">

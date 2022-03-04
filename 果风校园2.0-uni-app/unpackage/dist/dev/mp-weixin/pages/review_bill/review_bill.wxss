@@ -1,0 +1,55 @@
+
+image{
+		width: 320rpx;
+		height: 110rpx;
+		margin-left: 20rpx;
+		margin-right: 20rpx;
+}
+.Selection{
+	background-color: #f6f9fc;
+	width: 680rpx;
+	border-radius: 20rpx;
+	margin-top: 30rpx;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 40rpx;
+	padding-top: 40rpx;
+}
+.order_plan{
+	display: flex;
+	flex-direction: column;
+	margin-left: 40rpx;
+	margin-right: 40rpx;
+}
+.item{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28rpx;
+	line-height: 36rpx;	
+
+	margin-top: 20rpx;
+}
+.content{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 27rpx;
+	line-height: 35rpx;	
+	margin-top: 20rpx;
+}
+.goods{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 27rpx;
+	line-height: 35rpx;	
+	margin-top: 10rpx;
+}
+.title{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36rpx;
+	line-height: 36rpx;	
+	color: #000000;
+	margin-left: 40rpx;
+}
+
+

@@ -61,9 +61,16 @@
 				uni.$emit('custom_value',['自定义','自定义'])
 			},
 			confirm(){
-				this.showmask = false
-				uni.$emit('unshow',this.showmask)
-				uni.$emit('custom_value',[this.day,this.time])
+				if (this.time > this.day) {
+					uni.showModal({
+						content:"一天最多一次配送",
+						showCancel:false
+					})
+				} else {
+					this.showmask = false
+					uni.$emit('unshow',this.showmask)
+					uni.$emit('custom_value',[this.day,this.time])
+				}
 			}
 		}
 	}
