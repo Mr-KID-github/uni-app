@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "支付订单",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "custom_bar": "/components/custom_bar/custom_bar"
-  }
-}

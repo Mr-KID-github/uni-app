@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "果风校园-商品页",
-  "usingComponents": {
-    "goods_bar": "/components/Goods_bar/Goods_bar",
-    "step_bar": "/components/step_bar/step_bar",
-    "goods_item": "/components/goods_item/goods_item"
-  }
-}

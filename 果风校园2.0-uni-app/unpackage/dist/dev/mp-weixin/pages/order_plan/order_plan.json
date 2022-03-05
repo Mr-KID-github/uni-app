@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "确认订单",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "position": "/components/position/position",
-    "custom_bar": "/components/custom_bar/custom_bar"
-  }
-}

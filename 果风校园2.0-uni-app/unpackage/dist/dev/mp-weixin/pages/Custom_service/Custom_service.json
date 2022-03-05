@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "果风校园-定制服务",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "plan_select": "/components/plan_select/plan_select",
-    "plan_good": "/components/plan_good/plan_good",
-    "custom_select": "/components/custom_select/custom_select"
-  }
-}
