@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "componentcoupons": "/components/Componentcoupons/Componentcoupons",
-    "componentdrink": "/components/Componentdrink/Componentdrink",
-    "componentball": "/components/Componentball/Componentball"
-  }
-}
