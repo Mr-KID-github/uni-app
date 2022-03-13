@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/review_bill/review_bill",
     "pages/index/index",
+    "pages/review_bill/review_bill",
     "pages/Custom_service/Custom_service",
     "pages/pay_plan/pay_plan",
     "pages/goods/goods",

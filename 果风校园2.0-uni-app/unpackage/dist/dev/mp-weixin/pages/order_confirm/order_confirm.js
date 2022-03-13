@@ -232,9 +232,9 @@ var _default =
         method: "POST",
         data: {
           openid: getApp().globalData.openid,
-          data_total: order.order_money,
-          crsNo: order.order_id },
-
+          data_total: order.order_money, // 支付金额
+          crsNo: order.order_id // 订单号
+        },
         header: {
           'content-type': 'application/x-www-form-urlencoded' // 默认值
         },
