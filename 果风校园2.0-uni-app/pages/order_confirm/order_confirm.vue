@@ -67,15 +67,16 @@
 			
 			// 支付订单方法
 			pay_bill:function(order){
-				console.log(order)
+				 console.log(order)
+				 getApp().globalData.order_id=order.order_id//把编号返回到全局中
 				//与服务器交互---支付接口
 				uni.request({
 				  url: getApp().globalData.server + '/index.php/Home/Pay/make_order',	// 微信小程序支付
 				  method: "POST",
 				  data: {
 					openid: getApp().globalData.openid,
-					data_total: order.order_money,  // 支付金额
-					crsNo: order.order_id			// 订单号
+					data_total: order.order_money,
+					crsNo: order.order_id
 				  },
 				  header: {
 					'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -147,10 +148,9 @@
 						console.log(res);
 					  }
 					})
-				  }
-				});
+				   }
+				 });
 			},
-			
 			//构造订单函数
 			pushOrder: function() {
 				// 将全局的order地址给order
@@ -160,8 +160,7 @@
 				order.goods = getApp().globalData.cert//购物车内信息
 				order.order_money = getApp().globalData.total_price + 5//总价格
 				order.order_time = this.getTime()//获得当前时间
-				order.order_phone = getApp().globalData.position.phone
-				//拼接当前配送地址
+				order.order_phone = getApp().globalData.position.phone//拼接当前配送地址
 				order.position = getApp().globalData.position.school+getApp().globalData.position.apartment+getApp().globalData.position.dormitory
 				// 直接将信息存入数据库这种方法高效但是不可取，一来占用内存大，二来想要从数据库中提取这些信息的部分数据不便，因此这里仅做再次确认信息的展示
 				var show_goods = ''	//展示出来的订单商品

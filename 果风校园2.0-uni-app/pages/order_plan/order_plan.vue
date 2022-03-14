@@ -2,26 +2,26 @@
 	<view>
 		<view style="align-items: center; display: flex; flex-direction: column;">
 			<view class="nutrition_table">
-				<text class="nutrition_title">营养价值参考</text>
+				<text class="nutrition_title">总营养价值参考</text>
 				<view style="display: flex; margin-top: 20rpx; position: relative; right: 130rpx;">
 					<view class="nutrition_value">
 						<view class="nutrition_item">
 							<image src="/static/img/heat.svg"></image>
-							<text>{{20}}k</text>
+							<text>{{energy}}k</text>
 						</view>
 						<text class="nutrition_value_text">热量</text>
 					</view>
 					<view class="nutrition_value">
 						<view class="nutrition_item">
 							<image src="/static/img/moisture.svg"></image>
-							<text>{{10}}g</text>
+							<text>{{water}}g</text>
 						</view>
 						<text class="nutrition_value_text">水分</text>
 					</view>
 					<view class="nutrition_value">
 						<view class="nutrition_item">
 							<image src="/static/img/sugar.svg" style="margin-right: 5rpx;"></image>
-							<text>{{5}}g</text>
+							<text>{{sugar}}g</text>
 						</view>
 						<text class="nutrition_value_text">糖分</text>
 					</view>
@@ -67,11 +67,23 @@
 				custom_goods:[],
 				plan: '',
 				num,
+				sugar:0,
+				water:0,
+				energy:0,
+				
 			}
 		},
 		onLoad() {
 			this.plan = getApp().globalData.select_plan
 			this.custom_goods = getApp().globalData.custom_cert
+			var that=this;
+			for(let i=0;i<this.custom_goods.length;i++){
+				var item=this.custom_goods[i]
+				that.sugar+=Number(item.goods_sugar)
+				that.energy+=Number(item.goods_energy)
+				that.water+=Number(item.goods_water)
+			}
+			
 		},
 		methods: {
 			

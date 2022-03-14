@@ -62,11 +62,12 @@
 			});
 		},
 		onShow: function() {
-			console.log('App Show')
+			console.log('App Show')	
 		},
 		onHide: function() {
 			console.log('App Hide')
 		},
+		
 		globalData: {
 			order:{
 				goods: [],	//订单的所有商品
@@ -75,12 +76,18 @@
 				order_money:'',//订单金额
 				order_phone: '', //订单联系电话
 			},//提交的订单信息
+			order_id:"",//订单编号
 			openid: "",
 			server:'https://qiubao.ltd/果宝',
 			cert: [],	// 购物车
 			custom_cert: [], //定制购物车
 			select_plan: '', //选择的方案
 			total_price: 0, //总价
+			Notification_Check:{	//定制方案提醒
+				N1:true,
+				N2:true,
+				N3:true,
+			},
 			position:{
 				"phone": "",	//手机号（在页面初始化时从数据中提取）
 				"school": "",	//学校（在页面初始化时从数据中提取）
@@ -89,27 +96,27 @@
 			},
 			plan1_num:{
 				"guocha":0,
-				"totalguocha":2,
+				"totalguocha":'',
 				"guolao":0,
-				"totalguolao":1,
+				"totalguolao":'',
 				"guopan":0,
-				"totalguopan":2,
+				"totalguopan":'',
 			},
 			plan2_num:{
 				"guocha":0,
-				"totalguocha":3,
+				"totalguocha":'',
 				"guolao":0,
-				"totalguolao":3,
+				"totalguolao":'',
 				"guopan":0,
-				"totalguopan":3,
+				"totalguopan":'',
 			},
 			plan3_num:{
 				"guocha":0,
-				"totalguocha":50,
+				"totalguocha":'',
 				"guolao":0,
-				"totalguolao":50,
+				"totalguolao":'',
 				"guopan":0,
-				"totalguopan":50,
+				"totalguopan":'',
 			},
 			
 		}

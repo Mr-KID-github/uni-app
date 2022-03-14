@@ -63,6 +63,7 @@
 	width: 720rpx;
 	margin-top: 20rpx;
 	border-radius: 20rpx;
+	 border: 2px solid #707070;
 }
 
 .input_temp input{
@@ -74,10 +75,8 @@
 	font-size: 30rpx;
 	line-height: 38rpx;
 	/* identical to box height */
-	
 	letter-spacing: -0.3px;
-	
-	color: #3C3C3C;
+	color: #000000;
 }
 
 .item_name{
@@ -93,16 +92,15 @@
 	line-height: 30rpx;
 	text-align: center;
 	letter-spacing: -0.6rpx;
-	
-	color: #000000;
+	color: #707070;
 }
 
 .divider1{
-	border: 2rpx solid #000000;
+	border: 1rpx solid #303030;
 }
 
-.divider2{
-	border: 2rpx solid #000000;
+/* .divider2{
+	border: 1rpx solid #303030;
 	width: 70rpx;
-}
+} */
 </style>

@@ -4,7 +4,7 @@
 			<image class="address_img" src="/static/img/address_img.png"></image>
 			<view class="phone">
 				<input :value="phone" type="number" @input="input_phone" v-if="phone"/>
-				<input placeholder="填入您的电话号码,以便我们确认您的身份" type="number" @input="input_phone" v-if="!phone"/>
+				<input placeholder="请在此填入您的电话号码" type="number" @input="input_phone" v-if="!phone"/>
 				<image src="/static/img/phone.svg"></image>
 			</view>
 			<new_input type="text" item_name="学校名" item_id="school" item_image="/static/img/school.svg" :value="school"></new_input>
@@ -96,11 +96,9 @@
 	font-size: 30rpx;
 	line-height: 38rpx;
 	/* identical to box height */
-	
 	letter-spacing: -0.3px;
 	width: 100%;
-	color: #979797;
-	
+	color: #101010;
 	margin-left: 20rpx;
 
 }
@@ -125,5 +123,6 @@
 	width: 680rpx;
 	margin-top: 20rpx;
 	border-radius: 20rpx;
+	border: 2px solid #707070;
 }
 </style>

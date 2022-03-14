@@ -7,19 +7,19 @@
 					<view :class="(plan_name=='方案一')?'item_name':'item_name2'" @click="select_plan" id="方案一">
 						方案一
 					</view>
-					<text class="item_price">￥20.00</text>
+					<text class="item_price">￥{{price}}.00</text>
 				</view>
 				<view class="item">
 					<view :class="(plan_name=='方案二')?'item_name':'item_name2'" @click="select_plan" id="方案二">
 						方案二
 					</view>
-					<text class="item_price">￥20.00</text>
+					<text class="item_price">￥{{price2}}.00</text>
 				</view>
 				<view class="item">
 					<view :class="(plan_name=='自定义')?'item_name':'item_name2'" @click="select_plan" id="自定义">
 						自定义
 					</view>
-					<text class="item_price">￥20.00</text>
+					<text class="item_price">￥{{price3}}.00</text>
 				</view>
 			</view>
 		</view>
@@ -33,6 +33,7 @@
 				plan_name: '方案一'
 			}
 		},
+		props:['price','price2','price3'],
 		methods: {
 			select_plan(e){
 				// console.log(e.currentTarget.id)

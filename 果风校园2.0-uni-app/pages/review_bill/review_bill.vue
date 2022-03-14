@@ -1,12 +1,12 @@
 <template>
 	<view style="display: flex; flex-direction: column; align-items: center;">
 		<view class="Selection">
-			<text class="title">订单信息：GF31646388966</text>
+			<text class="title">订单号：{{id}}</text>
 			<view style="display: flex; justify-content: space-between;">
 				<view class="order_plan">
 					<text class="item" style="color: #293f94;">配送方案</text>
 					<text class="content">校园直达 预计送达时间20分钟以内</text>
-					<text class="content">地址：皇家工程学院6公寓208</text>
+					<text class="content">地址：{{order.position}}</text>
 				</view>
 <!-- 				<view class="order_plan">
 					<text class="item" style="color: #293f94;">配送次数</text>
@@ -15,7 +15,7 @@
 			</view>
 			<view class="order_plan">
 				<text class="item" style="color: #293f94;">配送商品</text>
-				<text class="content">1杯果茶</text>
+				<text class="content" v-for="item in order.goods">{{item.goods_name}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{item.goods_num}}份</text>
 				<view v-for="item in goods">
 					<text class="goods">{{item.name}}</text>
 					<text class="goods" style="padding-left: 40rpx;">数量:{{item.num}}</text>
@@ -24,8 +24,8 @@
 			<view class="order_plan">
 				<text class="item" style="color: #293f94;">总价</text>
 				<view style="display: flex; justify-content: space-between;">
-					<text class="content">RMB 20.00</text>
-					<text class="content">2022/03/21</text>
+					<text class="content">{{order.order_money}}</text>
+					<text class="content">{{order.order_time}}</text>
 				</view>
 			</view>
 		</view>
@@ -40,12 +40,17 @@
 	export default {
 		data() {
 			return {
+				id:"",
+				order:'',
 				goods: [
 				]
 			}
 		},
 		onLoad() {
+			this.id=getApp().globalData.order_id
+			this.order=getApp().globalData.order//获得配送地址
 			this.goods = getApp().globalData.goods
+			
 		},
 		methods: {
 			over_start(){

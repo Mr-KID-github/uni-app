@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/review_bill/review_bill",
     "pages/Custom_service/Custom_service",
+    "pages/address/address",
     "pages/pay_plan/pay_plan",
     "pages/goods/goods",
     "pages/order_plan/order_plan",
     "pages/Custom_goods/Custom_goods",
-    "pages/address/address",
+    "pages/review_bill/review_bill",
     "pages/order_confirm/order_confirm"
   ],
   "subPackages": [],

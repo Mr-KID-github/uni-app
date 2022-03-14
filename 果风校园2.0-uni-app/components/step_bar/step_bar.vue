@@ -2,7 +2,7 @@
 	<view>
 		<view class="background" v-if="step==1" @click="to_order">
 			<view class="content">
-				<text class="text">Step 1.选择您的商品</text>
+				<text class="text">确认好商品！点我前往结算哦~</text>
 				<image src="/static/img/arrow.svg" class="arrow"></image>
 			</view>
 		</view>

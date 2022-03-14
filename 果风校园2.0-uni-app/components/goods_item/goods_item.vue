@@ -90,6 +90,10 @@
 						"goods_img": good.goods_picture1,
 						"goods_id":good.goods_id,
 						"goods_type": good.goods_type,
+						"goods_water":good.water,
+						"goods_energy":good.energy,
+						"goods_sugar":good.sugar,
+						"goods_price":good.goods_price,
 					}
 				} else {
 					var cert = getApp().globalData.cert
@@ -114,15 +118,11 @@
 					/*/
 					if (item.goods_name == cert_good.goods_name) {
 						console.log("购物车中存在这个商品,更新它的数量")
-						console.log(cert_good)
 						/*/
 							如果购物车中这个商品的数量为0，则从购物车中移除
 						/*/
 						// 如果是定制服务的话发现购物车中有此商品的话直接退出或者移除退出,item.plan_name != getApp().globalData.select_plan
 						if (this.custom) {
-							console.log("这里")
-							console.log(item.plan_name)
-							console.log(getApp().globalData.select_plan)
 							if (getApp().globalData.select_plan==item.plan_name){
 								console.log("购物车中存在这个方案的商品，更新它的数量")
 								if (cert_good.goods_num == 0) {

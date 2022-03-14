@@ -1,28 +1,30 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "果风校园-首页"
 			}
-		}, 
-		{
-		    "path" : "pages/review_bill/review_bill",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "查收订单",
-		        "enablePullDownRefresh": false
-		    } 
 		},
+		{
+			
+			"path" : "pages/Custom_service/Custom_service",
+			"style" :                                                                                    
+			{
+			    "navigationBarTitleText": "果风校园-定制服务",
+			    "enablePullDownRefresh": false
+			}
+		}, 
+
 
 		{
-		    "path" : "pages/Custom_service/Custom_service",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "果风校园-定制服务",
-		        "enablePullDownRefresh": false
-		    }
+		   
+		   "path" : "pages/address/address",
+		   "style" :                                                                                    
+		   {
+		       "navigationBarTitleText": "果风校园-地址信息",
+		       "enablePullDownRefresh": false
+		   }
 		},
 
 		{
@@ -63,12 +65,12 @@
 
 
 		{
-		    "path" : "pages/address/address",
+		    "path" : "pages/review_bill/review_bill",
 		    "style" :                                                                                    
 		    {
-		        "navigationBarTitleText": "果风校园-地址信息",
+		        "navigationBarTitleText": "查收订单",
 		        "enablePullDownRefresh": false
-		    }
+		    } 
 		    
 		},
 		{
