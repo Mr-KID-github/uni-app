@@ -56,11 +56,78 @@
 					console.log(res.data)
 					that.goods = res.data
 					
+					// 加载时，如果是从定制商品界面加入时，先从全局中获取到该用户是否有方案信息，如果有则加入购物车中
+					if (getApp().globalData.plan.length != 0){
+						for (let i=0; i<getApp().globalData.plan.length; i++){
+							var item = getApp().globalData.plan[i]
+							// 提取出商品
+							console.log("开始提取"+item.plan_name+"商品")
+							var re = item.plan_goods.split(' ')
+							if (item.plan_name == getApp().globalData.select_plan){
+								for (let i=0; i<re.length; i++){
+									// 依据提取出的商品从数据库商品中获取商品信息并将其添加至定制购物车中
+									for (let j=0; j<that.goods.length; j++){
+										var good = that.goods[j]
+										if (re[i] == good.goods_name){
+											// console.log("找到其信息")
+											// 将其添加至定制购物车
+											var cert = getApp().globalData.custom_cert
+											// 组件传值通过下列方式获得
+											// console.log(JSON.parse(JSON.stringify(this.plan)))
+											var cert_good = {
+												"plan_name": that.plan,
+												"goods_name": good.goods_name,
+												"goods_num": 1,
+												"goods_introduct": good.details,
+												"goods_img": good.goods_picture1,
+												"goods_id":good.goods_id,
+												"goods_type": good.goods_type,
+												"goods_water":good.water,
+												"goods_energy":good.energy,
+												"goods_sugar":good.sugar,
+												"goods_price":good.goods_price,
+											}
+											let length = cert.length
+											/*/
+												如果购物车中没有商品，则不会执行下面循环，直接执行if (cert.length == 0) cert.push(cert_good)
+												如果购物车中有商品，则执行循环
+											/*/
+											if (length == 0){
+												console.log("购物车没有任何商品")
+												cert.push(cert_good)
+											} else {
+												for (let k = 0; k < length; k++) {
+													var item = cert[k] // item是指购物车中的商品
+													// console.log(item.goods_name)
+													/*/
+														如果购物车中存在这个商品，则更新它的数量
+													/*/
+													if (item.goods_name == cert_good.goods_name && item.plan_name == getApp().globalData.select_plan) {
+														console.log("购物车中存在这个商品")
+														break
+													}
+													if(k == cert.length - 1){
+														console.log("购物车中没有这个商品")
+														cert.push(cert_good)
+														break
+													}
+												}
+											}
+											// console.log(cert)
+											break
+										}
+									}
+								}
+								console.log(getApp().globalData.custom_cert)
+														
+							}
+							
+						}
+					}
 					// 通过对比购物车里的商品和调用接口的商品更新商品状态（是否在购物车中）
 					for (let i=0; i<getApp().globalData.custom_cert.length; i++){
 						var cert_item = getApp().globalData.custom_cert[i]
 						for (let j=0; j<that.goods.length; j++){
-							
 							var goods_item = that.goods[j]
 							if (cert_item.goods_name == goods_item.goods_name&&getApp().globalData.select_plan==cert_item.plan_name){
 								goods_item.goods_cert = cert_item.goods_num

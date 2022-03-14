@@ -47,7 +47,30 @@
 								console.log(res)
 							}
 						})
-						
+						// 获取定制方案
+						uni.request({
+							url: getApp().globalData.server + '/index.php/Home/GuoFeng/userplan',
+							data:{
+								'user_id': res.data.openid,
+							},
+							method:"POST",
+							header: {
+								'content-type': "application/x-www-form-urlencoded"
+							},
+							dataType: 'json',
+							success:function(res){
+								console.log(res)
+								if (res.data.error_code == 0){
+									console.log("成功获取用户方案信息")
+									console.log(res.data.data)
+									// 读取数据库方案信息
+									getApp().globalData.plan = res.data.data
+								}
+							},
+							fail:function(res){
+								console.log(res)
+							}
+						})
 					},
 					fail:function(res){
 						var there = that
@@ -69,6 +92,8 @@
 		},
 		
 		globalData: {
+			// 用户方案信息
+			plan:{},
 			order:{
 				goods: [],	//订单的所有商品
 				position:'',//配送地址信息

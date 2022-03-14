@@ -54,6 +54,7 @@
 				custom_cert: [] //定制购物车
 			};
 		},
+		props: ['goods', 'custom', 'plan'], //接受父组件传递过来的商品信息
 		created() {
 			console.log("Created执行了")
 			// 接收兄弟组件Goods_bar传来的参数商品类型,进行商品类型的筛选展示
@@ -62,7 +63,7 @@
 				this.type = select
 			})
 		},
-		props: ['goods', 'custom', 'plan'], //接受父组件传递过来的商品信息
+
 		methods: {
 			// 添加商品到购物车
 			to_cert(good, method) {

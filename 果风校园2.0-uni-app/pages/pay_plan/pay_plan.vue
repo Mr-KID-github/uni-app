@@ -3,13 +3,13 @@
 		<view style="align-items: center; display: flex; flex-direction: column;">
 			<!-- 订单日期 -->
 			<view class="order_date">
-				<text class="date_text">下单时间: {{order.time}}</text>
-				<text class="date_text">￥{{order.price}}</text>
+				<text class="date_text">下单时间: {{order.plan_time}}</text>
+				<text class="date_text">￥{{order.plan_price}}</text>
 			</view>
 
 			<!-- 配送信息 -->
 			<view class="Delivery">
-				<text class="Delivery_text">配送计划</text>
+				<text class="Delivery_text">配送计划 - {{order.plan_name}}</text>
 				<!-- 配送时间 -->
 				<view class="Delivery_content">
 					<view class="Delivery_img">
@@ -24,15 +24,14 @@
 				<view class="contact">
 					<view class="Number">
 						<text class="title">电话</text>
-						<text class="contact_text">{{order.phone}}</text>
+						<text class="contact_text">{{order.plan_phone}}</text>
 					</view>
 					<view class="Email">
 						<text class="title">地址</text>
-						<text class="contact_text">{{order.address}}</text>
+						<text class="contact_text">{{order.plan_position}}</text>
 					</view>
 				</view>
 			</view>
-			<button class="pay_button" @click="push_order">支付</button>
 		</view>
 		<!-- 底部导航 -->
 		<view style="height: 180rpx;"></view>
@@ -44,71 +43,22 @@
 	export default {
 		data() {
 			return {
-				plan: '',
 				order: {
 					user_id:'',
-					goods: [], //商品信息
+					goods: '', //商品信息
 					phone: "", //电话
 					address: "", //地址
 					price: 0, //总价格
-					time: '',//订单时间
+					// time: '',//订单时间
 					Notification_Check: '',//订单提醒
 					order_status: '未支付',
 				},
-				goods: '',
-
 			}
 		},
 		onLoad() {
-			this.order.user_id=getApp().globalData.openid
-			this.goods = getApp().globalData.custom_cert
-			this.plan = getApp().globalData.select_plan
-			//获取时间函数---
-			this.order.time = this.getTime()
-			//获取地址和电话
-			this.order.phone = getApp().globalData.position.phone
-			this.order.address = getApp().globalData.position.school + '|' + getApp().globalData.position.apartment + '|' +
-				getApp().globalData.position.dormitory
-			//获取定制提醒信息
-			if (this.plan == '方案一') {
-
-				this.order.Notification_Check = getApp().globalData.Notification_Check.N1
-
-			} else if (this.plan == '方案二') {
-				this.order.Notification_Check = getApp().globalData.Notification_Check.N2
-
-			} else {
-				this.order.Notification_Check = getApp().globalData.Notification_Check.N3
-
-			}
-			//获取当前方案的商品，放在订单数组中
-			var that = this
-			for (let i = 0; i < this.goods.length; i++) {
-				var item = this.goods[i]
-				if (item.plan_name == that.plan) {
-					that.order.goods += item
-					that.order.price += Number(item.goods_price)
-					console.log(that.order.goods)
-				}
-			}
-
-
+			this.order = getApp().globalData.plan
 		},
 		methods: {
-			//获取时间函数
-			getTime: function() {
-				var date = new Date(),
-					year = date.getFullYear(),
-					month = date.getMonth() + 1,
-					day = date.getDate(),
-					hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
-					minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
-					second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-				month >= 1 && month <= 9 ? (month = "0" + month) : "";
-				day >= 0 && day <= 9 ? (day = "0" + day) : "";
-				var timer = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-				return timer;
-			},
 		}
 	}
 </script>
