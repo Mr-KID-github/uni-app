@@ -218,6 +218,34 @@
 				})
 			},
 			
+			change_plan(plan){
+				console.log("已存在方案，开始修改方案")
+				console.log(plan)
+				var that = this
+				uni.request({
+					url: getApp().globalData.server + '/index.php/Home/GuoFeng/changeplan',//确认订单，发送订单信息
+					data: {
+						plan_id: plan.plan_id,
+						plan_goods: plan.plan_goods,
+						plan_notification: plan.plan_notification
+					},
+					method: "POST",
+					header: {
+						'content-type': "application/x-www-form-urlencoded"
+					},
+					dataType: 'json',
+					success: function(res) {
+						console.log(res)
+						// 调用支付接口
+						that.pay_bill(plan)
+					},
+					fail(res) {
+						console.log(res)
+					}
+				})
+				
+			},
+			
 			click_step(e) {
 				console.log(e.currentTarget.id)
 				if (e.currentTarget.id == 'select_good' && this.step == 'order_plan') {
@@ -250,38 +278,44 @@
 								})
 							}
 						}
-					
 					}
 				} else if(e.currentTarget.id == 'pay_plan' && this.step == 'order_plan'){
-					if (getApp().globalData.custom_cert.length == 0) {
-						uni.showModal({
-							showCancel: false,
-							content: "请选择配送商品",
-						})
-					} else {
-						// 判断该用户是否已经生成该方案：
-						if (getApp().globalData.plan.length != 0){
-							for (let i=0; i<getApp().globalData.plan.length; i++){
-								var item = getApp().globalData.plan[i]
-								console.log(item.plan_status)
-								if (item.plan_name==getApp().globalData.select_plan){
-									if(item.plan_status == "已支付"){
-										this.step = e.currentTarget.id
-										uni.redirectTo({
-											url: "/pages/pay_plan/pay_plan"
-										})
-									} else {
-										// 调用支付接口
-										this.push_order()
+					// 判断该用户是否已经生成该方案
+					if (getApp().globalData.plan.length != 0){
+						for (let i=0; i<getApp().globalData.plan.length; i++){
+							var item = getApp().globalData.plan[i]
+							console.log(item.plan_status)
+							if (item.plan_name==getApp().globalData.select_plan){
+								// 此处又分为两种情况，一是订单已支付，二是订单未支付（此处计划暂时只支持未支付方案的修改，已支付方案的修改涉及到后续的配送问题，比较麻烦）
+								if(item.plan_status == "已支付"){
+									this.step = e.currentTarget.id
+									uni.redirectTo({
+										url: "/pages/pay_plan/pay_plan"
+									})
+								} else {
+									// 如果已有方案，则对现有方案进行修改：
+									// 调用修改订单接口
+									var data = {}
+									for (let i=0; i<getApp().globalData.plan.length; i++){
+										if (getApp().globalData.plan[i].plan_name == getApp().globalData.select_plan){
+											data = getApp().globalData.plan[i]
+											break
+										}
 									}
-									break
+									this.change_plan(data)
 								}
+								break
 							}
-						}else{
-							// 调用支付接口
-							this.push_order()
 						}
+					}else{
+						// 调用支付接口
+						this.push_order()
 					}
+				} else {
+					uni.showModal({
+						showCancel:false,
+						content: "请先确认您的订单",
+					})
 				}
 			}
 		}

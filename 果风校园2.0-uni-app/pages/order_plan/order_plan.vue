@@ -84,6 +84,36 @@
 				that.water+=Number(item.goods_water)
 			}
 			
+			// 将方案购物车中的商品同步修改至用户方案信息中
+			for (let i = 0; i < getApp().globalData.plan.length; i++){
+				item = getApp().globalData.plan[i]
+				if (item.plan_name == getApp().globalData.select_plan){
+					// 获取最新该方案所有选择商品名
+					var goods = ""
+					for (let j = 0; j < getApp().globalData.custom_cert.length; j++){
+						if (getApp().globalData.custom_cert[j].plan_name == this.plan){
+							goods +=  getApp().globalData.custom_cert[j].goods_name + ' '
+						}
+					}
+					// 替换至该用户方案商品
+					item.plan_goods = goods
+					// 替换掉该用户方案是否提醒
+					// 获取定制提醒信息
+					if (item.plan_name == '方案一') {
+						item.plan_notification = getApp().globalData.Notification_Check.N1
+							
+					} else if (item.plan_name == '方案二') {
+						item.plan_notification = getApp().globalData.Notification_Check.N2
+							
+					} else {
+						item.plan_notification = getApp().globalData.Notification_Check.N3
+					}
+					break
+				}
+			}
+			console.log(getApp().globalData.custom_cert)
+			console.log(getApp().globalData.plan)
+			console.log(getApp().globalData.Notification_Check)
 		},
 		methods: {
 			

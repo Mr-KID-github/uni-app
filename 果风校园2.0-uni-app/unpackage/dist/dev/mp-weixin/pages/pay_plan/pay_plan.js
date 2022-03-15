@@ -194,11 +194,13 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      order: {
+      orders: {
         user_id: '',
         goods: '', //商品信息
         phone: "", //电话
@@ -206,12 +208,14 @@ var _default =
         price: 0, //总价格
         // time: '',//订单时间
         Notification_Check: '', //订单提醒
-        order_status: '未支付' } };
+        order_status: '未支付' },
 
+      plan: '' };
 
   },
   onLoad: function onLoad() {
-    this.order = getApp().globalData.plan;
+    this.orders = getApp().globalData.plan;
+    this.plan = getApp().globalData.select_plan;
   },
   methods: {} };exports.default = _default;
 

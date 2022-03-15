@@ -1,6 +1,7 @@
 <template>
 	<view>
-		<view style="align-items: center; display: flex; flex-direction: column;">
+		<block v-for="order in orders">
+		<view v-if="order.plan_name==plan" style="align-items: center; display: flex; flex-direction: column;">
 			<!-- 订单日期 -->
 			<view class="order_date">
 				<text class="date_text">下单时间: {{order.plan_time}}</text>
@@ -33,6 +34,7 @@
 				</view>
 			</view>
 		</view>
+		</block>
 		<!-- 底部导航 -->
 		<view style="height: 180rpx;"></view>
 		<custom_bar step_name="pay_plan"></custom_bar>
@@ -43,7 +45,7 @@
 	export default {
 		data() {
 			return {
-				order: {
+				orders: {
 					user_id:'',
 					goods: '', //商品信息
 					phone: "", //电话
@@ -53,10 +55,12 @@
 					Notification_Check: '',//订单提醒
 					order_status: '未支付',
 				},
+				plan: ''
 			}
 		},
 		onLoad() {
-			this.order = getApp().globalData.plan
+			this.orders = getApp().globalData.plan
+			this.plan = getApp().globalData.select_plan
 		},
 		methods: {
 		}
